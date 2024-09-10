@@ -1,4 +1,5 @@
 import { flowMiniVersionState } from "@/atoms/uiAtom";
+import Powerflow from "@/components/powerFlow";
 import Image from "next/image";
 import { useRef } from "react";
 import { useRecoilState } from "recoil";
@@ -22,7 +23,7 @@ export default function Home() {
           }`}
         >
           <div className={`${flowMiniVersion && "col-span-2 sm:col-span-1"} `}>
-            {/* <LiveSensors /> */}
+            <Powerflow />
           </div>
           <div
             className={`${
