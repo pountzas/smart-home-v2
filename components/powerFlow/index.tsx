@@ -1,3 +1,4 @@
+"use client";
 import { useRecoilState } from "recoil";
 import { flowMiniVersionState } from "@/atoms/uiAtom";
 
@@ -15,76 +16,77 @@ function Powerflow() {
     flowMiniVersion && setFlowMiniVersion(false);
   };
   return (
-    <div
-      className={`${
-        flowMiniVersion ? "flex flex-col items-center justify-start" : ""
-      } object-contain  rounded-lg bg-secondary pt-2`}
-    >
-      {/* <SensorsStreamController
+    <div className={`${flowMiniVersion && "col-span-2 sm:col-span-1"} `}>
+      <div
+        className={`${
+          flowMiniVersion ? "flex flex-col items-center justify-start" : ""
+        } object-contain  rounded-lg bg-secondary pt-2`}
+      >
+        {/* <SensorsStreamController
         accessToken={mainState.cloudToken}
         webSocketUrl={mainState.wsBrokerUrl}
         sensors={mainState.streamingSensorsUUIDs}
       /> */}
-      <div className="flex items-center justify-between px-5 py-2">
-        {!flowMiniVersion && (
-          <div
-            onClick={handleAddDevice}
-            className="z-10 flex items-center justify-center w-8 h-8 col-span-1 rounded-lg bg-buttonsPrimary"
-          >
-            {/* <Plus /> */}
-          </div>
-        )}
-        <div className="w-[64px] h-[32px] bg-buttonsPrimary rounded-lg col-span-8">
-          <div className="relative flex shadow-lg">
+        <div className="flex items-center justify-between px-5 py-2">
+          {!flowMiniVersion && (
             <div
-              className={`absolute rounded-lg ${
-                flowMiniVersion && "right-0"
-              } w-8 h-8 bg-buttonsSecondary`}
-            ></div>
-            <button
-              type="button"
-              onClick={closeMiniFlow}
-              className={`${
-                !flowMiniVersion && "text-textSecondary"
-              } flex h-8 w-8 z-10 flex-col  items-center justify-center`}
+              onClick={handleAddDevice}
+              className="z-10 flex items-center justify-center w-8 h-8 col-span-1 rounded-lg bg-buttonsPrimary"
             >
-              {/* <FlowToggle color={flowMiniVersion} /> */}
-            </button>
-            <button
-              type="button"
-              onClick={openMiniFlow}
-              className={`${
-                flowMiniVersion && "text-textSecondary"
-              } flex h-8 w-8 z-10 flex-col  items-center justify-center`}
-            >
-              {/* <MiniToggle color={!flowMiniVersion} /> */}
-            </button>
+              {/* <Plus /> */}
+            </div>
+          )}
+          <div className="w-[64px] h-[32px] bg-buttonsPrimary rounded-lg col-span-8">
+            <div className="relative flex shadow-lg">
+              <div
+                className={`absolute rounded-lg ${
+                  flowMiniVersion && "right-0"
+                } w-8 h-8 bg-buttonsSecondary`}
+              ></div>
+              <button
+                type="button"
+                onClick={closeMiniFlow}
+                className={`${
+                  !flowMiniVersion && "text-textSecondary"
+                } flex h-8 w-8 z-10 flex-col  items-center justify-center`}
+              >
+                {/* <FlowToggle color={flowMiniVersion} /> */}
+              </button>
+              <button
+                type="button"
+                onClick={openMiniFlow}
+                className={`${
+                  flowMiniVersion && "text-textSecondary"
+                } flex h-8 w-8 z-10 flex-col  items-center justify-center`}
+              >
+                {/* <MiniToggle color={!flowMiniVersion} /> */}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div
-        className={`h-[60vh] md:h-[58vh] lg:h-[65vh] flex flex-col items-center overflow-y-scroll scrollbar-hide`}
-      >
-        {flowMiniVersion && (
-          <div className={`flex items-center justify-center`}>
-            {/* <HomeSensor
+        <div
+          className={`h-[60vh] md:h-[58vh] lg:h-[65vh] flex flex-col items-center overflow-y-scroll scrollbar-hide`}
+        >
+          {flowMiniVersion && (
+            <div className={`flex items-center justify-center`}>
+              {/* <HomeSensor
               name={HOME[0].name}
               sensorId={HOME[0].sensorId}
               value={HOME[0].value}
               status={HOME[0].status}
               icon={HOME[0].icon}
             /> */}
-          </div>
-        )}
-        <div
-          className={`${
-            flowMiniVersion
-              ? "space-y-2 pb-2"
-              : "flex items-center justify-center z-[30] gap-8 pt-2"
-          } shadow-lg`}
-        >
-          {/* {POWER_SUPPLIES.map((powerItem, index) => {
+            </div>
+          )}
+          <div
+            className={`${
+              flowMiniVersion
+                ? "space-y-2 pb-2"
+                : "flex items-center justify-center z-[30] gap-8 pt-2"
+            } shadow-lg`}
+          >
+            {/* {POWER_SUPPLIES.map((powerItem, index) => {
             return (
               <LiveSensorItem
                 key={index}
@@ -102,28 +104,28 @@ function Powerflow() {
               />
             );
           })} */}
-        </div>
+          </div>
 
-        {/* Home Sensor */}
-        {!flowMiniVersion && (
-          <div className={`flex items-center justify-center py-10 z-0`}>
-            {/* <HomeSensor
+          {/* Home Sensor */}
+          {!flowMiniVersion && (
+            <div className={`flex items-center justify-center py-10 z-0`}>
+              {/* <HomeSensor
               name={HOME[0].name}
               sensorId={HOME[0].sensorId}
               value={HOME[0].value}
               status={HOME[0].status}
               icon={HOME[0].icon}
             /> */}
-          </div>
-        )}
+            </div>
+          )}
 
-        {/* Devices */}
-        <div
-          className={`${
-            flowMiniVersion ? "space-y-2 pb-2" : "grid grid-cols-3 z-30 gap-8"
-          } `}
-        >
-          {/* {DEVICES.map((device, index) => {
+          {/* Devices */}
+          <div
+            className={`${
+              flowMiniVersion ? "space-y-2 pb-2" : "grid grid-cols-3 z-30 gap-8"
+            } `}
+          >
+            {/* {DEVICES.map((device, index) => {
             return (
               <LiveSensorItem
                 key={index}
@@ -139,6 +141,7 @@ function Powerflow() {
               />
             );
           })} */}
+          </div>
         </div>
       </div>
     </div>

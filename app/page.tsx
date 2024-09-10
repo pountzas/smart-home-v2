@@ -1,14 +1,15 @@
 import { flowMiniVersionState } from "@/atoms/uiAtom";
 import Powerflow from "@/components/powerFlow";
 import Image from "next/image";
-import { useRef } from "react";
+// import { useRef } from "react";
 import { useRecoilState } from "recoil";
 
 export default function Home() {
-  const [flowMiniVersion, setFlowMiniVersion] =
-    useRecoilState(flowMiniVersionState);
-  const controlsRef = useRef(null);
-  const optimiserRef = useRef(null);
+  // const [flowMiniVersion, setFlowMiniVersion] =
+  //   useRecoilState(flowMiniVersionState);
+  // const controlsRef = useRef(null);
+  // const optimiserRef = useRef(null);
+  let flowMiniVersion = false;
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="grid gap-4 grid-rows-7 ">
@@ -22,9 +23,8 @@ export default function Home() {
               : "lg:grid-cols-2 2xl:grid-cols-3"
           }`}
         >
-          <div className={`${flowMiniVersion && "col-span-2 sm:col-span-1"} `}>
-            <Powerflow />
-          </div>
+          <Powerflow />
+
           <div
             className={`${
               flowMiniVersion
@@ -36,8 +36,8 @@ export default function Home() {
               {/* <Graphs /> */}
               <div className="grid grid-cols-1 gap-4 pt-4 2xl:grid-cols-2">
                 <div ref={null}>{/* <EvCharger /> */}</div>
-                <div ref={optimiserRef}>{/* <Optimiser /> */}</div>
-                <div ref={controlsRef}>{/* <Controls /> */}</div>
+                {/* <div ref={optimiserRef}><Optimiser /></div> */}
+                {/* <div ref={controlsRef}><Controls /></div> */}
                 {/* <Alarms /> */}
                 {/* <Tickets /> */}
               </div>

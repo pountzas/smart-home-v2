@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import RecoilRoot from "@/HOCs/RecoilRoot";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,14 +17,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        <div className="flex items-start">
-          {/* <SideNav /> */}
-          {children}
-        </div>
-      </body>
-    </html>
+    <RecoilRoot>
+      <html lang="en">
+        <body className={inter.className}>
+          <Header />
+          <div className="flex items-start">
+            {/* <SideNav /> */}
+            {children}
+          </div>
+        </body>
+      </html>
+    </RecoilRoot>
   );
 }
