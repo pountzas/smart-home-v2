@@ -9,6 +9,7 @@ import {
   PeakData,
   UsageData
 } from "@/utils/evChargerUtils";
+import ComponentsHeader from "../reusables/ComponentsHeader";
 function EvCharger() {
   const [emissions, setEmissions] = useState(EmissionsData);
   const [cost, setCost] = useState(CostData);
