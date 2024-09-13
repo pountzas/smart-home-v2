@@ -1,3 +1,10 @@
+import Tickets from "@/public/icons/Tickets";
+import Controls from "@/public/icons/Controls";
+import Alarms from "@/public/icons/Alarms";
+import Optimiser from "@/public/icons/Optimiser";
+import PowerCurves from "@/public/icons/PowerCurves";
+import EvCharger from "@/public/icons/EvCharger";
+
 type HeaderIconProps = {
   title: string;
 };
