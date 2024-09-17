@@ -35,3 +35,10 @@ type SolarDataType = {
   info: string[];
   status: string[];
 };
+
+type ChargeHistoryDataType = {
+  title: string[];
+  details: string[];
+  info: string[];
+  status: string[];
+};
