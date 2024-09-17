@@ -28,3 +28,10 @@ type CarDetailsTypes = {
   cars: CarCardData[];
   carIndex: number;
 };
+
+type SolarDataType = {
+  title: string[];
+  details: string[];
+  info: string[];
+  status: string[];
+};
