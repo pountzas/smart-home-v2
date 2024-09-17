@@ -23,3 +23,8 @@ type CarCardData = {
   balanced: number[];
   boosted: number[];
 };
+
+type CarDetailsTypes = {
+  cars: CarCardData[];
+  carIndex: number;
+};
