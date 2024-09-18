@@ -8,7 +8,7 @@ const MidPeakData = [16, 100];
 
 const PeakData = [4, 100];
 
-const CarsModalCardData = [
+const CarsModalCardData: CarCardData[] = [
   {
     id: 1,
     car: "Tesla 3",
