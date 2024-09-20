@@ -1,10 +1,13 @@
+import Plus from "@/public/icons/Plus";
 import { getHeaderIcon } from "@/utils/getHeaderIcon";
+import SearchComponent from "./SearchComponent";
+import ExpandComponentIcon from "@/public/icons/ExpandComponentIcon";
 
 type ComponentsHeaderProps = {
   title: string;
   count?: number;
   note?: string;
-  expandClick?: () => void;
+  expandClick?: null | (() => void);
   open?: () => void;
   onClose?: () => void;
 };
@@ -68,7 +71,7 @@ function ComponentsHeader({
             className="p-3 rounded-lg bg-buttonsPrimary"
             type="button"
           >
-            <ExpandComponent />
+            <ExpandComponentIcon />
           </button>
         )}
       </div>
