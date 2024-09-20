@@ -10,6 +10,9 @@ import {
   UsageData
 } from "@/utils/evChargerUtils";
 import ComponentsHeader from "../reusables/ComponentsHeader";
+import PercentageBar from "../reusables/PercentageBar";
+import FullModal from "../modals/FullModal";
+import CarExpandCard from "../reusables/CarExpandCard";
 function EvCharger() {
   const [emissions, setEmissions] = useState(EmissionsData);
   const [cost, setCost] = useState(CostData);
