@@ -1,9 +1,9 @@
-// Base imports
+import { motion } from "framer-motion";
 
 type ProgressCircleProps = {
   percent: number;
   progressRemainingColor: string;
-  progressColor: string;
+  progressColor?: string;
 };
 const ProgressCircle = ({
   progressRemainingColor = "rgb(255, 255, 255, 0.1)",
@@ -23,6 +23,7 @@ const ProgressCircle = ({
 
   return (
     <svg
+      className="rotate-[130deg]"
       height="250px"
       width="250px"
       viewBox="0 0 58 58"
@@ -47,14 +48,16 @@ const ProgressCircle = ({
         strokeDasharray={hideLowPortion()}
       />
 
-      <circle
+      <motion.circle
+        // initial={{ rotate: 230 }}
+        animate={{ strokeDasharray: setStrokeDasharray().toString() }}
+        transition={{ duration: 0.5 }}
         strokeWidth={"2.5px"}
         stroke={progressColor}
         fill="transparent"
         cx="29"
         cy="29"
         r={25}
-        strokeDasharray={setStrokeDasharray().join(" ")}
       />
     </svg>
   );
