@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 type PercentageBarProps = {
   startValue: number;
@@ -38,10 +39,12 @@ function PercentageBar({
         <p>{topRight}</p>
       </div>
       <div className="h-2 bg-quaternary">
-        <div
-          style={{ width: `${percentage}%` }}
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: `${percentage}%` }}
+          // style={{ width: `${percentage}%` }}
           className="h-full bg-blue_custom"
-        ></div>
+        ></motion.div>
       </div>
       <div className="flex items-center justify-between text-xs">
         <p>{bottomLeft}</p>
