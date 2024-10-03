@@ -42,3 +42,13 @@ type ChargeHistoryDataType = {
   info: string[];
   status: string[];
 };
+
+type FakeData = {
+  title: "Alarm" | "Warning" | "Error";
+  timeAgo: string;
+  description: string;
+  contributor: string;
+  status: Status;
+};
+
+type Status = "New" | "Open" | "Forgoten!";
