@@ -1,4 +1,5 @@
 import Info from "@/public/icons/Info";
+import VerticalBar from "./VerticalBar";
 
 function StatsVerticalGraph({ cars, carIndex }: CarDetailsTypes) {
   return (
@@ -56,26 +57,28 @@ function StatsVerticalGraph({ cars, carIndex }: CarDetailsTypes) {
               </div>
             </div>
 
-            <div className="absolute z-20 h-[400px] w-full flex items-end justify-between pl-12 pr-2  pt-80">
+            <div className="absolute z-20 h-[400px] w-full flex items-end justify-between pl-12 pr-2 pt-80">
               {cars[carIndex].balanced.map((value, i) => {
                 return (
-                  <div
-                    style={{ height: value * 4 }}
+                  <VerticalBar
+                    value={value}
+                    index={i}
+                    color={"bg-lightBlue_custom"}
                     key={i}
-                    className={`w-[1.2%]  bg-lightBlue_custom bottom-0 rounded-t-full shadow-lg`}
-                  ></div>
+                  />
                 );
               })}
             </div>
 
-            <div className=" h-[400px] z-10 w-full flex items-end justify-between pl-12 pr-2  pt-80">
+            <div className=" h-[400px] z-10 w-full flex items-end justify-between pl-12 pr-2 pt-80">
               {cars[carIndex].boosted.map((value, i) => {
                 return (
-                  <div
-                    style={{ height: value * 4 }}
+                  <VerticalBar
+                    value={value}
+                    index={i}
                     key={i}
-                    className={`w-[1.2%] bg-blue_custom bottom-0 rounded-t-full shadow-lg`}
-                  ></div>
+                    color={"bg-blue_custom"}
+                  />
                 );
               })}
             </div>
