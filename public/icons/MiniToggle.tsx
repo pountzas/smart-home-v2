@@ -3,9 +3,8 @@ type MiniToggleProps = {
 };
 function MiniToggle({ color }: MiniToggleProps) {
   const colors = "#373D42";
-  const white = "#fff";
 
-  const fill = color ? colors : white;
+  const fill = color ? colors : "#fff";
   return (
     <svg
       width="12"
