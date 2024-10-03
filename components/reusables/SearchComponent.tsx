@@ -1,14 +1,24 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Expand from "@/public/icons/Expand";
 import Search from "@/public/icons/Search";
 
-function SearchComponent() {
+type SearchComponentProps = {
+  openVersion?: boolean;
+};
+function SearchComponent({ openVersion }: SearchComponentProps) {
   const [searchOpened, setSearchOpened] = useState(false);
+
+  useEffect(() => {
+    if (openVersion) {
+      setSearchOpened(true);
+    }
+  }, [openVersion]);
+
   return (
     <>
       {!searchOpened ? (
-        <a onClick={() => setSearchOpened(true)}>
+        <a onClick={() => !openVersion && setSearchOpened(true)}>
           <Search />
         </a>
       ) : (
@@ -20,9 +30,9 @@ function SearchComponent() {
           />
           <a
             className="flex flex-row items-center mr-2"
-            onClick={() => setSearchOpened(false)}
+            onClick={() => !openVersion && setSearchOpened(false)}
           >
-            <span className="mr-2 text-[12px]">All</span>
+            <span className="mr-2 text-[12px] text-textPrimary ">All</span>
             <Expand />
           </a>
         </div>
