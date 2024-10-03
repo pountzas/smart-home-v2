@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import RecoilRoot from "@/HOCs/RecoilRoot";
+import Sidenav from "@/components/Sidenav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +20,10 @@ export default function RootLayout({
   return (
     <RecoilRoot>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={`max-h-screen overflow-clip ${inter.className}`}>
           <Header />
           <div className="flex items-start">
-            {/* <SideNav /> */}
+            <Sidenav />
             {children}
           </div>
         </body>
