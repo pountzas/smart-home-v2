@@ -1,23 +1,31 @@
+import Alerts from "@/public/icons/Alerts";
+import Mail from "@/public/icons/Mail";
+import Notifications from "@/public/icons/Notifications";
 import SmartHome from "@/public/icons/SmartHome";
+import User from "@/public/icons/User";
 import React from "react";
+import SearchComponent from "./reusables/SearchComponent";
 const iconItems = [
   {
     name: "notifications",
-    icon: "notifications",
+    icon: <Notifications />,
     color: "black",
-    colorDark: "white"
+    colorDark: "white",
+    onclick: null
   },
   {
     name: "mail",
-    icon: "mail",
+    icon: <Mail />,
     color: "black",
-    colorDark: "white"
+    colorDark: "white",
+    onclick: null
   },
   {
     name: "alerts",
-    icon: "alerts",
+    icon: <Alerts />,
     color: "black",
-    colorDark: "white"
+    colorDark: "white",
+    onclick: null
   }
 ];
 
