@@ -50,6 +50,19 @@ function FullModal({ open, onClose, props, cars, modalTitle }: FullModalProps) {
     onClose();
   };
 
+  useEffect(() => {
+    setModalOpen(true);
+    setIsMounted(true);
+    document.addEventListener("keydown", escKeyDown);
+    return () => {
+      setModalOpen(false);
+      setIsMounted(false);
+      document.removeEventListener("keydown", escKeyDown);
+      setSelectedModalCar(0);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       {open ? (
