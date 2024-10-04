@@ -1,6 +1,10 @@
 "use client";
 import { useRecoilState } from "recoil";
 import { flowMiniVersionState } from "@/atoms/uiAtom";
+import Plus from "@/public/icons/Plus";
+import MiniToggle from "@/public/icons/MiniToggle";
+import FlowToggle from "@/public/icons/FlowToggle";
+import { motion } from "framer-motion";
 
 function Powerflow() {
   const [flowMiniVersion, setFlowMiniVersion] =
@@ -20,7 +24,7 @@ function Powerflow() {
       <div
         className={`${
           flowMiniVersion ? "flex flex-col items-center justify-start" : ""
-        } object-contain  rounded-lg bg-secondary pt-2`}
+        } object-contain rounded-lg bg-secondary pt-2`}
       >
         {/* <SensorsStreamController
         accessToken={mainState.cloudToken}
@@ -28,14 +32,14 @@ function Powerflow() {
         sensors={mainState.streamingSensorsUUIDs}
       /> */}
         <div className="flex items-center justify-between px-5 py-2">
-          {!flowMiniVersion && (
-            <div
-              onClick={handleAddDevice}
-              className="z-10 flex items-center justify-center w-8 h-8 col-span-1 rounded-lg bg-buttonsPrimary"
-            >
-              {/* <Plus /> */}
-            </div>
-          )}
+          <motion.button
+            initial={{ opacity: flowMiniVersion ? 0 : 1 }}
+            animate={{ opacity: !flowMiniVersion ? 1 : 0 }}
+            onClick={handleAddDevice}
+            className="z-10 flex items-center justify-center w-8 h-8 col-span-1 rounded-lg bg-buttonsPrimary"
+          >
+            <Plus />
+          </motion.button>
           <div className="w-[64px] h-[32px] bg-buttonsPrimary rounded-lg col-span-8">
             <div className="relative flex shadow-lg">
               <div
@@ -50,7 +54,7 @@ function Powerflow() {
                   !flowMiniVersion && "text-textSecondary"
                 } flex h-8 w-8 z-10 flex-col  items-center justify-center`}
               >
-                {/* <FlowToggle color={flowMiniVersion} /> */}
+                <FlowToggle fill={flowMiniVersion ? "black" : "white"} />
               </button>
               <button
                 type="button"
@@ -59,7 +63,7 @@ function Powerflow() {
                   flowMiniVersion && "text-textSecondary"
                 } flex h-8 w-8 z-10 flex-col  items-center justify-center`}
               >
-                {/* <MiniToggle color={!flowMiniVersion} /> */}
+                <MiniToggle color={!flowMiniVersion} />
               </button>
             </div>
           </div>
