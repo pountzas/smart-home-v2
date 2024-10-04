@@ -5,6 +5,7 @@ import ProgressCircle from "@/public/icons/ProgressCircle";
 import CircleLoadLines from "@/public/icons/CircleLoadLines";
 import Stop from "@/public/icons/Stop";
 import Booster from "@/public/icons/Booster";
+import AddButton from "./buttons/AddButton";
 
 function CarChargerCard({ cars, carIndex }: CarDetailsTypes) {
   const { schedules } = cars[carIndex];
@@ -28,7 +29,7 @@ function CarChargerCard({ cars, carIndex }: CarDetailsTypes) {
           <div className="z-10">
             <CircleLoadLines />
           </div>
-          <div className="rotate-[130deg] absolute top-[40px]">
+          <div className="absolute top-[40px]">
             <ProgressCircle
               progressColor={"#0094FF"}
               progressRemainingColor={"#16191B"}
@@ -93,7 +94,7 @@ function CarChargerCard({ cars, carIndex }: CarDetailsTypes) {
         <div className="pt-6">
           <div className="flex items-center justify-between pb-2">
             <h4 className="text-sm">Schedules</h4>
-            {/* <AddButton click={null} /> */}
+            <AddButton click={null} />
           </div>
           <div className="space-y-2">
             {schedules.map((item, index) => {
