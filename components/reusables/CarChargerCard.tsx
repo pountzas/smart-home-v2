@@ -1,3 +1,5 @@
+"use client";
+
 import PercentageBar from "./PercentageBar";
 import CarScheduleCard from "./CarScheduleCard";
 import StatusButton from "./buttons/StatusButton";
@@ -6,9 +8,14 @@ import CircleLoadLines from "@/public/icons/CircleLoadLines";
 import Stop from "@/public/icons/Stop";
 import Booster from "@/public/icons/Booster";
 import AddButton from "./buttons/AddButton";
+import { selectedModalCarState } from "@/atoms/uiAtom";
+import { useRecoilState } from "recoil";
 
-function CarChargerCard({ cars, carIndex }: CarDetailsTypes) {
-  const { schedules } = cars[carIndex];
+function CarChargerCard({ cars }: CarDetailsTypes) {
+  const [selectedModalCar, setSelectedModalCar] = useRecoilState(
+    selectedModalCarState
+  );
+  const { schedules } = cars[selectedModalCar];
 
   const calculatePercentage = (value: number, max: number) => {
     return Math.round((value / max) * 100);
@@ -18,7 +25,7 @@ function CarChargerCard({ cars, carIndex }: CarDetailsTypes) {
     <div className="p-4 bg-tertiary rounded-xl">
       <div className="flex items-center justify-between">
         <div className="flex space-x-2">
-          <h4 className="">{cars[carIndex].car}</h4>
+          <h4 className="">{cars[selectedModalCar].car}</h4>
           <h4 className="text-textTertiary">EV Charger</h4>
         </div>
         <StatusButton status="Charging" />
@@ -34,15 +41,15 @@ function CarChargerCard({ cars, carIndex }: CarDetailsTypes) {
               progressColor={"#0094FF"}
               progressRemainingColor={"#16191B"}
               percent={calculatePercentage(
-                cars[carIndex].carBalance[0],
-                cars[carIndex].carBalance[1]
+                cars[selectedModalCar].carBalance[0],
+                cars[selectedModalCar].carBalance[1]
               )}
             />
           </div>
           <div className="absolute z-20 items-center">
             <div className="flex items-center justify-center space-x-1">
               <h4 className="text-2xl font-bold">
-                {cars[carIndex].carBalance[0]}
+                {cars[selectedModalCar].carBalance[0]}
               </h4>
               <h4 className="font-light text-textTertiary">kW</h4>
             </div>
@@ -50,7 +57,7 @@ function CarChargerCard({ cars, carIndex }: CarDetailsTypes) {
           </div>
           <div className="absolute flex items-center z-20 justify-center space-x-1 top-[260px] pl-44">
             <h4 className="text-xl font-semibold text-textTertiary">
-              {cars[carIndex].carBalance[1]}
+              {cars[selectedModalCar].carBalance[1]}
             </h4>
             <h4 className="font-light text-textSecondary">kW</h4>
           </div>
@@ -106,21 +113,21 @@ function CarChargerCard({ cars, carIndex }: CarDetailsTypes) {
       <PercentageBar
         title={`Usage`}
         topLeft={`Off-Peak`}
-        topRight={`${cars[carIndex].offPeakData[0]}%`}
-        startValue={cars[carIndex].offPeakData[0]}
-        endValue={cars[carIndex].offPeakData[1]}
+        topRight={`${cars[selectedModalCar].offPeakData[0]}%`}
+        startValue={cars[selectedModalCar].offPeakData[0]}
+        endValue={cars[selectedModalCar].offPeakData[1]}
       />
       <PercentageBar
         topLeft={`Mid-Peak`}
-        topRight={`${cars[carIndex].midPeakData[0]}%`}
-        startValue={cars[carIndex].midPeakData[0]}
-        endValue={cars[carIndex].midPeakData[1]}
+        topRight={`${cars[selectedModalCar].midPeakData[0]}%`}
+        startValue={cars[selectedModalCar].midPeakData[0]}
+        endValue={cars[selectedModalCar].midPeakData[1]}
       />
       <PercentageBar
         topLeft={`Peak`}
-        topRight={`${cars[carIndex].peakData[0]}%`}
-        startValue={cars[carIndex].peakData[0]}
-        endValue={cars[carIndex].peakData[1]}
+        topRight={`${cars[selectedModalCar].peakData[0]}%`}
+        startValue={cars[selectedModalCar].peakData[0]}
+        endValue={cars[selectedModalCar].peakData[1]}
       />
     </div>
   );

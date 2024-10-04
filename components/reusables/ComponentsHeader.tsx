@@ -1,25 +1,15 @@
 import Plus from "@/public/icons/Plus";
 import { getHeaderIcon } from "@/utils/getHeaderIcon";
 import SearchComponent from "./SearchComponent";
-import ExpandComponentIcon from "@/public/icons/ExpandComponentIcon";
+import ModalButton from "./buttons/ModalButton";
 
 type ComponentsHeaderProps = {
   title: string;
   count?: number;
   note?: string;
-  expandClick?: null | (() => void);
-  open?: () => void;
-  onClose?: () => void;
 };
 
-function ComponentsHeader({
-  title,
-  count,
-  note,
-  expandClick,
-  open,
-  onClose
-}: ComponentsHeaderProps) {
+function ComponentsHeader({ title, count, note }: ComponentsHeaderProps) {
   const checkAddBtn = () => {
     switch (title) {
       case "Tickets":
@@ -41,7 +31,7 @@ function ComponentsHeader({
     }
   };
 
-  const checkExpandBtn = () => {
+  const checkModalBtn = () => {
     switch (title) {
       case "Power Curves":
         return false;
@@ -49,6 +39,16 @@ function ComponentsHeader({
         return true;
     }
   };
+
+  const checkFunctionalityExpandBtn = () => {
+    switch (title) {
+      case "Power Curves":
+        return true;
+      default:
+        return false;
+    }
+  };
+
   return (
     <div className="flex items-center justify-between px-6">
       <div className="flex items-center space-x-2">
@@ -65,15 +65,7 @@ function ComponentsHeader({
             <Plus />
           </button>
         )}
-        {checkExpandBtn() && (
-          <button
-            onClick={open}
-            className="p-3 rounded-lg bg-buttonsPrimary"
-            type="button"
-          >
-            <ExpandComponentIcon />
-          </button>
-        )}
+        {checkModalBtn() && <ModalButton />}
       </div>
     </div>
   );

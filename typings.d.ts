@@ -26,7 +26,7 @@ type CarCardData = {
 
 type CarDetailsTypes = {
   cars: CarCardData[];
-  carIndex: number;
+  carIndex?: number;
 };
 
 type SolarDataType = {

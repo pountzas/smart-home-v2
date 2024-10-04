@@ -1,12 +1,18 @@
+"use client";
+import { selectedModalCarState } from "@/atoms/uiAtom";
 import Edit from "@/public/icons/Edit";
+import { useRecoilState } from "recoil";
 
-function CarDetails({ cars, carIndex }: CarDetailsTypes) {
+function CarDetails({ cars }: CarDetailsTypes) {
+  const [selectedModalCar, setSelectedModalCar] = useRecoilState(
+    selectedModalCarState
+  );
   return (
     <div className="grid w-full grid-cols-4 gap-4 p-4 text-sm h-fit bg-tertiary rounded-xl">
       <div className="flex flex-col space-y-2">
         <div>
           <h4 className="text-textTertiary">Name</h4>
-          <p className="text-bold">{cars[carIndex].car}</p>
+          <p className="text-bold">{cars[selectedModalCar].car}</p>
         </div>
         <div>
           <h4 className="text-textTertiary">Location</h4>

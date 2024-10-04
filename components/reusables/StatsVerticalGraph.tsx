@@ -1,7 +1,13 @@
+"use client";
 import Info from "@/public/icons/Info";
 import VerticalBar from "./VerticalBar";
+import { selectedModalCarState } from "@/atoms/uiAtom";
+import { useRecoilState } from "recoil";
 
-function StatsVerticalGraph({ cars, carIndex }: CarDetailsTypes) {
+function StatsVerticalGraph({ cars }: CarDetailsTypes) {
+  const [selectedModalCar, setSelectedModalCar] = useRecoilState(
+    selectedModalCarState
+  );
   return (
     <div className="px-4 pb-4">
       <div className="p-4 space-y-2 rounded-lg bg-tertiary">
@@ -58,7 +64,7 @@ function StatsVerticalGraph({ cars, carIndex }: CarDetailsTypes) {
             </div>
 
             <div className="absolute z-20 h-[400px] w-full flex items-end justify-between pl-12 pr-2 pt-80">
-              {cars[carIndex].balanced.map((value, i) => {
+              {cars[selectedModalCar].balanced.map((value, i) => {
                 return (
                   <VerticalBar
                     value={value}
@@ -71,7 +77,7 @@ function StatsVerticalGraph({ cars, carIndex }: CarDetailsTypes) {
             </div>
 
             <div className=" h-[400px] z-10 w-full flex items-end justify-between pl-12 pr-2 pt-80">
-              {cars[carIndex].boosted.map((value, i) => {
+              {cars[selectedModalCar].boosted.map((value, i) => {
                 return (
                   <VerticalBar
                     value={value}
