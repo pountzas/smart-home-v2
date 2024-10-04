@@ -137,7 +137,7 @@ function ToggleComponent({ title }: { title: string }) {
               </div>
             ))
           ) : (
-            <div className="w-full h-40 rounded-lg bg-quaternary "></div>
+            <div className="w-full h-96 rounded-lg bg-quaternary "></div>
           )}
         </div>
       </div>
