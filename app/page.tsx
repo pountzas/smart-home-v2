@@ -3,9 +3,10 @@ import EvCharger from "@/components/evCharger/EvCharger";
 import IndexHeader from "@/components/indexHeader/IndexHeader";
 import Powerflow from "@/components/powerFlow";
 import Tickets from "@/components/tickets/Tickets";
+import Optimiser from "@/components/οptimiser/Optimiser";
 
 export default function Home() {
-  let flowMiniVersion = false;
+  let flowMiniVersion = true;
   return (
     <main className="flex flex-col items-center justify-between w-full bg-primary">
       <div className="grid gap-4 grid-rows-7 w-full">
@@ -33,7 +34,9 @@ export default function Home() {
               <div ref={null}>
                 <EvCharger />
               </div>
-              {/* <div ref={optimiserRef}><Optimiser /></div> */}
+              <div>
+                <Optimiser />
+              </div>
               {/* <div ref={controlsRef}><Controls /></div> */}
               <Alarms />
               <Tickets />
