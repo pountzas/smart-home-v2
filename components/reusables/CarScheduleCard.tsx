@@ -3,17 +3,13 @@ import Start from "@/public/icons/Start";
 import Stop from "@/public/icons/Stop";
 
 function CarScheduleCard({
-  item,
-  key
+  item
 }: {
   item: [number, string, string, string, string];
   key: number;
 }) {
   return (
-    <div
-      key={key}
-      className="grid items-center w-full grid-cols-5 px-4 py-3 rounded-lg bg-quaternary"
-    >
+    <div className="grid items-center w-full grid-cols-5 px-4 py-3 rounded-lg bg-quaternary">
       <div className="flex items-center space-x-1">
         <p className="text-2xl">{item[0]}</p>
         <div className="text-[10px] text-textTertiary whitespace-nowrap">
