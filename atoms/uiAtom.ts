@@ -14,3 +14,8 @@ export const modalOpenState = atom({
   key: "modalOpenState",
   default: false
 });
+
+export const rightmodalOpenState = atom({
+  key: "rightmodalOpenState",
+  default: false
+});
