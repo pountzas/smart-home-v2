@@ -36,7 +36,7 @@ function CarChargerCard({ cars }: CarDetailsTypes) {
           <div className="z-10">
             <CircleLoadLines />
           </div>
-          <div className="absolute top-[40px]">
+          <div className="absolute top-[40px] rotate-[130deg]">
             <ProgressCircle
               progressColor={"#0094FF"}
               progressRemainingColor={"#16191B"}

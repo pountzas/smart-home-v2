@@ -23,7 +23,6 @@ const ProgressCircle = ({
 
   return (
     <svg
-      className="rotate-[130deg]"
       height="250px"
       width="250px"
       viewBox="0 0 58 58"
