@@ -1,14 +1,48 @@
 "use client";
 
 import { useRecoilState } from "recoil";
-import { modalOpenState } from "@/atoms/uiAtom";
+import {
+  modalOpenState,
+  rightmodalOpenState,
+  modalTypeState
+} from "@/atoms/uiAtom";
 import ExpandComponentIcon from "@/public/icons/ExpandComponentIcon";
 
-function ModalButton() {
-  const [modalOpen, setModalOpen] = useRecoilState(modalOpenState);
+function ModalButton({ title }: { title: string }) {
+  const [fullModalOpen, setFullModalOpen] = useRecoilState(modalOpenState);
+  const [rightModalOpen, setRightModalOpen] =
+    useRecoilState(rightmodalOpenState);
+  const [modalType, setModalType] = useRecoilState(modalTypeState);
+
+  const whatModalToOpen = () => {
+    switch (title) {
+      case "EvCharger":
+      case "Evcharger":
+      case "Ev Charger":
+      case "Ev charger":
+        setModalType("EvCharger");
+        setFullModalOpen(true);
+        break;
+      case "Car":
+        setModalType("Car");
+        // setRightModalOpen(true);
+        break;
+      case "Optimiser":
+        setModalType("Optimiser");
+        setFullModalOpen(true);
+        break;
+      case "Powerflow":
+        setModalType("Powerflow");
+        // setRightModalOpen(true);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <button
-      onClick={() => setModalOpen(true)}
+      onClick={() => whatModalToOpen()}
       className="p-3 rounded-lg bg-buttonsPrimary"
       type="button"
     >

@@ -65,7 +65,7 @@ function ComponentsHeader({ title, count, note }: ComponentsHeaderProps) {
             <Plus />
           </button>
         )}
-        {checkModalBtn() && <ModalButton />}
+        {checkModalBtn() && <ModalButton title={title} />}
       </div>
     </div>
   );
