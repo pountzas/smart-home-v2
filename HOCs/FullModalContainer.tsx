@@ -5,8 +5,10 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { modalOpenState } from "@/atoms/uiAtom";
 import { useRecoilState } from "recoil";
-import { ChildrenProps } from "@/typings";
 
+type ChildrenProps = {
+  children: React.ReactNode;
+};
 export default function FullModalContainer({ children }: ChildrenProps) {
   const [modalOpen, setModalOpen] = useRecoilState(modalOpenState);
 
