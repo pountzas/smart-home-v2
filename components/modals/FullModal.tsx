@@ -4,29 +4,25 @@ import CarIllustrationCard from "../reusables/CarIllustrationCard";
 import ToggleComponent from "../reusables/ToggleComponent";
 import StatsVerticalGraph from "../reusables/StatsVerticalGraph";
 import FullModalContainer from "@/HOCs/FullModalContainer";
-import ArrowCloseButton from "../reusables/buttons/ArrowCloseButton";
 import SelectedModalCarButton from "../reusables/buttons/SelectedModalCarButton";
+import { CarsModalCardData } from "@/utils/evChargerUtils";
+import ArrowCloseButton from "../reusables/buttons/ArrowCloseButton";
+import ModalTitle from "../reusables/ModalTitle";
 
-type FullModalProps = {
-  cars?: CarCardData[];
-  modalTitle: string;
-};
-
-function FullModal({ cars, modalTitle }: FullModalProps) {
+function FullModal() {
   return (
     <FullModalContainer>
       <div
         className={`absolute top-0 right-0 overscroll-contain min-h-screen max-h-screen w-full z-[400] bg-secondary flex flex-col`}
       >
-        {/* title */}
         <div className="flex items-center w-full min-h-[72px] space-x-2 border-b border-borderSecondary">
           <ArrowCloseButton />
-          <h2>{modalTitle}</h2>
+
+          <ModalTitle />
           <h3 className="text-textTertiary">Site address</h3>
         </div>
-
         {/* Summary */}
-        {/* {title === "Performance Summary" &&
+        {/* {modalTitle === "Performance Summary" &&
           <>
             <div className="w-full p-4">
 
@@ -54,9 +50,9 @@ function FullModal({ cars, modalTitle }: FullModalProps) {
         } */}
 
         {/* car tabs */}
-        {cars && (
+        {CarsModalCardData && (
           <div className="min-h-[44px] border-b border-borderSecondary flex items-end">
-            {cars.map((car, index: number) => {
+            {CarsModalCardData.map((car, index: number) => {
               return (
                 <SelectedModalCarButton car={car} index={index} key={index} />
               );
@@ -68,7 +64,7 @@ function FullModal({ cars, modalTitle }: FullModalProps) {
           {/* right side */}
           <div className="overflow-y-scroll scrollbar-hide max-h-[96%] overscroll-contain">
             <div className="pl-4 space-y-4">
-              {/* {title === "Performance Summary" &&
+              {/* {modalTitle === "Performance Summary" &&
                 <>
                   <div className="pr-4">
                     <KPISummaryBarGraph
@@ -83,23 +79,22 @@ function FullModal({ cars, modalTitle }: FullModalProps) {
                 </>
               } */}
 
-              {cars && (
+              {CarsModalCardData && (
                 <>
                   {/* Car info */}
-                  <CarDetails cars={cars} />
-
+                  <CarDetails cars={CarsModalCardData} />
                   {/* car charger */}
-                  <CarChargerCard cars={cars} />
-
+                  <CarChargerCard cars={CarsModalCardData} />
+                  CarsModalCardData
                   {/* car illustration */}
-                  <CarIllustrationCard cars={cars} />
+                  <CarIllustrationCard cars={CarsModalCardData} />
                 </>
               )}
             </div>
           </div>
           {/* left side */}
           <div className="overflow-y-scroll scrollbar-hide max-h-[96%] overscroll-contain">
-            {/* {title === "Performance Summary" &&
+            {/* {modalTitle === "Performance Summary" &&
               <>
                 <div className="pr-4 mb-4">
                   <KPISummaryBarGraph
@@ -114,7 +109,7 @@ function FullModal({ cars, modalTitle }: FullModalProps) {
               </>
             } */}
 
-            {cars && (
+            {CarsModalCardData && (
               <>
                 {/* <div className="p-4">
                   <div className="flex items-center mb-3 h-7">
@@ -124,7 +119,7 @@ function FullModal({ cars, modalTitle }: FullModalProps) {
                     }
                   </div>
                 </div> */}
-                <StatsVerticalGraph cars={cars} />
+                <StatsVerticalGraph cars={CarsModalCardData} />
 
                 <div>
                   <ToggleComponent title={"EvCharger"} />
