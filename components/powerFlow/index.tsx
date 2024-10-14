@@ -5,6 +5,7 @@ import Plus from "@/public/icons/Plus";
 import MiniToggle from "@/public/icons/MiniToggle";
 import FlowToggle from "@/public/icons/FlowToggle";
 import { motion } from "framer-motion";
+import PowerflowContainer from "@/HOCs/PowerflowContainer";
 
 function Powerflow() {
   const [flowMiniVersion, setFlowMiniVersion] =
@@ -20,7 +21,7 @@ function Powerflow() {
     flowMiniVersion && setFlowMiniVersion(false);
   };
   return (
-    <div className={`${flowMiniVersion && "col-span-2 sm:col-span-1"} `}>
+    <PowerflowContainer>
       <div
         className={`${
           flowMiniVersion ? "flex flex-col items-center justify-start" : ""
@@ -30,7 +31,7 @@ function Powerflow() {
         accessToken={mainState.cloudToken}
         webSocketUrl={mainState.wsBrokerUrl}
         sensors={mainState.streamingSensorsUUIDs}
-      /> */}
+        /> */}
         <div className="flex items-center justify-between px-5 py-2">
           <motion.button
             initial={{ opacity: flowMiniVersion ? 0 : 1 }}
@@ -148,7 +149,7 @@ function Powerflow() {
           </div>
         </div>
       </div>
-    </div>
+    </PowerflowContainer>
   );
 }
 
