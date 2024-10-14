@@ -20,7 +20,7 @@ export const rightmodalOpenState = atom({
   default: false
 });
 
-export const fullModalTypeState = atom({
-  key: "fullModalTypeState",
+export const modalTypeState = atom({
+  key: "modalTypeState",
   default: "none"
 });
