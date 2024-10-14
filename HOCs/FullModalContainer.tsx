@@ -33,7 +33,7 @@ export default function FullModalContainer({ children }: Props) {
       initial={{ x: modalOpen ? 0 : "100%" }}
       animate={{ x: modalOpen ? 0 : "100%" }}
       transition={{ duration: 0.4 }}
-      className="absolute top-0 right-0 min-h-screen max-h-screen min-w-[100vw] max-w-[100vw] z-[500] bg-secondary flex"
+      className="absolute top-0 right-0 min-h-screen max-h-screen w-full z-[500] bg-secondary text-white flex flex-col"
     >
       {children}
     </motion.div>

@@ -20,9 +20,11 @@ export default function RootLayout({
   return (
     <RecoilRoot>
       <html lang="en">
-        <body className={`max-h-screen overflow-clip ${inter.className}`}>
+        <body
+          className={`relative max-h-screen overflow-clip ${inter.className}`}
+        >
           <Header />
-          <div className="flex items-start">
+          <div className="flex items-start w-full">
             <Sidenav />
             {children}
           </div>

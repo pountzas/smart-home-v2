@@ -36,7 +36,7 @@ function Powerflow() {
             initial={{ opacity: flowMiniVersion ? 0 : 1 }}
             animate={{ opacity: !flowMiniVersion ? 1 : 0 }}
             onClick={handleAddDevice}
-            className="z-10 flex items-center justify-center w-8 h-8 col-span-1 rounded-lg bg-buttonsPrimary"
+            className="flex items-center justify-center w-8 h-8 col-span-1 rounded-lg bg-buttonsPrimary"
           >
             <Plus />
           </motion.button>
@@ -52,7 +52,7 @@ function Powerflow() {
                 onClick={closeMiniFlow}
                 className={`${
                   !flowMiniVersion && "text-textSecondary"
-                } flex h-8 w-8 z-10 flex-col  items-center justify-center`}
+                } flex h-8 w-8 z-[1] flex-col items-center justify-center`}
               >
                 <FlowToggle fill={flowMiniVersion ? "black" : "white"} />
               </button>
@@ -61,7 +61,7 @@ function Powerflow() {
                 onClick={openMiniFlow}
                 className={`${
                   flowMiniVersion && "text-textSecondary"
-                } flex h-8 w-8 z-10 flex-col  items-center justify-center`}
+                } flex h-8 w-8 z-[1] flex-col items-center justify-center`}
               >
                 <MiniToggle color={!flowMiniVersion} />
               </button>
