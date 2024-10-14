@@ -1,4 +1,3 @@
-import FullModal from "../modals/FullModal";
 import ComponentsHeader from "../reusables/ComponentsHeader";
 import PercentageBar from "../reusables/PercentageBar";
 
@@ -29,7 +28,6 @@ function Optimiser() {
           />
         </div>
       </div>
-      <FullModal modalTitle="Optimiser" />
     </>
   );
 }

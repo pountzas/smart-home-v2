@@ -8,7 +8,6 @@ import {
 } from "@/utils/evChargerUtils";
 import ComponentsHeader from "../reusables/ComponentsHeader";
 import PercentageBar from "../reusables/PercentageBar";
-import FullModal from "../modals/FullModal";
 import CarExpandCard from "../reusables/CarExpandCard";
 function EvCharger() {
   return (
@@ -60,7 +59,6 @@ function EvCharger() {
           />
         </div>
       </div>
-      <FullModal cars={CarsModalCardData} modalTitle="EV Chargers" />
     </>
   );
 }
