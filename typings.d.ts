@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 type IconProps = {
   size?: number;
   fill?: string;
@@ -52,3 +54,7 @@ type FakeData = {
 };
 
 type Status = "New" | "Open" | "Forgoten!";
+
+type ChildrenProps = {
+  children: ReactNode;
+};

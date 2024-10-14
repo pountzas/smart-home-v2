@@ -1,16 +1,13 @@
 "use client";
 
-import { ReactNode, useEffect } from "react";
+import { useEffect } from "react";
 
 import { motion } from "framer-motion";
 import { modalOpenState } from "@/atoms/uiAtom";
 import { useRecoilState } from "recoil";
+import { ChildrenProps } from "@/typings";
 
-type Props = {
-  children: ReactNode;
-};
-
-export default function FullModalContainer({ children }: Props) {
+export default function FullModalContainer({ children }: ChildrenProps) {
   const [modalOpen, setModalOpen] = useRecoilState(modalOpenState);
 
   const escKeyDown = (e: KeyboardEvent) => {

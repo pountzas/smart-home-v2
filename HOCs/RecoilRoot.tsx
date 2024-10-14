@@ -1,12 +1,8 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ChildrenProps } from "@/typings";
 import { RecoilRoot as Root } from "recoil";
 
-type Props = {
-  children: ReactNode;
-};
-
-export default function RecoilRoot({ children }: Props) {
+export default function RecoilRoot({ children }: ChildrenProps) {
   return <Root>{children}</Root>;
 }
