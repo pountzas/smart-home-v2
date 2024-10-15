@@ -85,7 +85,6 @@ function FullModal() {
                   <CarDetails cars={CarsModalCardData} />
                   {/* car charger */}
                   <CarChargerCard cars={CarsModalCardData} />
-                  CarsModalCardData
                   {/* car illustration */}
                   <CarIllustrationCard cars={CarsModalCardData} />
                 </>
