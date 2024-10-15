@@ -1,6 +1,7 @@
 import Alarms from "@/components/alarms/Alarms";
 import Controls from "@/components/controls/Controls";
 import EvCharger from "@/components/evCharger/EvCharger";
+import Graphs from "@/components/graphs/Graphs";
 import IndexHeader from "@/components/indexHeader/IndexHeader";
 import FullModal from "@/components/modals/FullModal";
 import Powerflow from "@/components/powerFlow";
@@ -32,7 +33,7 @@ export default function Home() {
                   : "2xl:col-span-2"
               } w-full grid overflow-y-scroll scrollbar-hide object-contain h-[65vh] lg:h-[72vh]`}
             >
-              {/* <Graphs /> */}
+              <Graphs />
               <div className="grid grid-cols-1 gap-4 2xl:grid-cols-2">
                 <div ref={null}>
                   <EvCharger />
