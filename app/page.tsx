@@ -1,4 +1,5 @@
 import Alarms from "@/components/alarms/Alarms";
+import Controls from "@/components/controls/Controls";
 import EvCharger from "@/components/evCharger/EvCharger";
 import IndexHeader from "@/components/indexHeader/IndexHeader";
 import FullModal from "@/components/modals/FullModal";
@@ -39,7 +40,9 @@ export default function Home() {
                 <div>
                   <Optimiser />
                 </div>
-                {/* <div ref={controlsRef}><Controls /></div> */}
+                {/* <div ref={controlsRef}> */}
+                <Controls />
+                {/* </div> */}
                 <Alarms />
                 <Tickets />
               </div>
