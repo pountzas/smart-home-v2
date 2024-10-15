@@ -52,3 +52,13 @@ type FakeData = {
 };
 
 type Status = "New" | "Open" | "Forgoten!";
+
+type AssetTypes = {
+  id: number;
+  name: string;
+  status: AssetStatus;
+  type: string;
+  location: string;
+};
+
+type AssetStatus = "Active" | "Inactive";
