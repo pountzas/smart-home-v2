@@ -4,6 +4,7 @@ import EvCharger from "@/components/evCharger/EvCharger";
 import Graphs from "@/components/graphs/Graphs";
 import IndexHeader from "@/components/indexHeader/IndexHeader";
 import FullModal from "@/components/modals/FullModal";
+import RightModal from "@/components/modals/RightModal";
 import Powerflow from "@/components/powerFlow";
 import Tickets from "@/components/tickets/Tickets";
 import Optimiser from "@/components/οptimiser/Optimiser";
@@ -52,6 +53,7 @@ export default function Home() {
         </div>
       </div>
       <FullModal />
+      <RightModal />
     </main>
   );
 }
