@@ -2,14 +2,14 @@
 
 import { useRecoilState } from "recoil";
 import { rightmodalOpenState, modalTypeState } from "../../atoms/uiAtom";
-import Plus from "@/public/icons/Plus";
-import Edit from "@/public/icons/Edit";
 import RightModalContainer from "@/HOCs/RightModalContainer";
-import Bin from "@/public/icons/Bin";
 import ModalCloseButton from "../reusables/buttons/ModalCloseButton";
 import ModalAddButton from "../reusables/buttons/ModalAddButton";
 import ModalEditButton from "../reusables/buttons/ModalEditButton";
 import ModalDeleteButton from "../reusables/buttons/ModalDeleteButton";
+import DeviceDetails from "../reusables/DeviceDetails";
+import ToggleComponent from "../reusables/ToggleComponent";
+
 function RightModal() {
   const [rightmodalOpen, setRightmodalOpen] =
     useRecoilState(rightmodalOpenState);
@@ -102,10 +102,6 @@ function RightModal() {
   };
   return (
     <RightModalContainer>
-      {/* <div
-        onClick={closeModal}
-        className="top-0 left-0 absolute z-[200] min-h-screen max-h-screen min-w-[100%] bg-primary opacity-70 blur-lg"
-      ></div> */}
       <div
         className={`absolute top-0 right-0 rounded-l-xl overscroll-contain min-h-screen max-h-screen min-w-[40vw] max-w-[40vw] z-[200] bg-secondary flex flex-col`}
       >
@@ -130,7 +126,7 @@ function RightModal() {
           {setDeviceDetails() && (
             <section>
               {/* device detais */}
-              {/* <DeviceDetails props={props} /> */}
+              <DeviceDetails />
             </section>
           )}
           {setSchedules() && (
@@ -148,10 +144,7 @@ function RightModal() {
           {setModalToggle() && (
             <section>
               {/* Events & History Charging */}
-              {/* <ModalToggleComponent
-                props={props}
-                title={setModalToggleTitle()}
-              /> */}
+              <ToggleComponent title={setModalToggleTitle()} />
             </section>
           )}
         </div>
