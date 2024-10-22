@@ -25,7 +25,7 @@ function ModalButton({ title }: { title: string }) {
         break;
       case "Car":
         setModalType("Car");
-        // setRightModalOpen(true);
+        setRightModalOpen(true);
         break;
       case "Optimiser":
         setModalType("Optimiser");
@@ -33,11 +33,24 @@ function ModalButton({ title }: { title: string }) {
         break;
       case "Powerflow":
         setModalType("Powerflow");
-        // setRightModalOpen(true);
+        setRightModalOpen(true);
+        break;
+      case "Controls":
+        setModalType("Controls");
+        setRightModalOpen(true);
+        break;
+      case "Tickets":
+        setModalType("Tickets");
+        setRightModalOpen(true);
+        break;
+      case "Alarms":
+        setModalType("Alarms");
+        setRightModalOpen(true);
         break;
       default:
         break;
     }
+    console.log("modalType", modalType);
   };
 
   return (
