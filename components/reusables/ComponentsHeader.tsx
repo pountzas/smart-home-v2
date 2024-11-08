@@ -1,7 +1,7 @@
-import Plus from "@/public/icons/Plus";
 import { getHeaderIcon } from "@/utils/getHeaderIcon";
 import SearchComponent from "./SearchComponent";
 import ModalButton from "./buttons/ModalButton";
+import AddButton from "./buttons/AddButton";
 
 type ComponentsHeaderProps = {
   title: string;
@@ -60,11 +60,7 @@ function ComponentsHeader({ title, count, note }: ComponentsHeaderProps) {
       {/* buttons */}
       <div className="flex items-center space-x-3 ease-linear">
         {checkSearchBtn() && <SearchComponent />}
-        {checkAddBtn() && (
-          <button className="p-3 rounded-lg bg-buttonsPrimary " type="button">
-            <Plus />
-          </button>
-        )}
+        {checkAddBtn() && <AddButton />}
         {checkModalBtn() && <ModalButton title={title} />}
       </div>
     </div>

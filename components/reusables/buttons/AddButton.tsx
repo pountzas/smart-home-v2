@@ -1,7 +1,7 @@
 import Add from "@/public/icons/Add";
 
 type AddButtonProps = {
-  click: null | (() => void);
+  click?: null | (() => void);
 };
 
 function AddButton({ click }: AddButtonProps) {
