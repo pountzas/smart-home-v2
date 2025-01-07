@@ -21,20 +21,14 @@ function HomeSensor({ name, sensorId, value, status, icon }: HomeSensorProps) {
 
   const [battPositive, setBattPositive] = useState(true);
   const [battNegative, setBattNegative] = useState(false);
-  const [gridPositive, setGridPositive] = useState(false);
+  const [gridPositive, setGridPositive] = useState(true);
   const [gridNegative, setGridNegative] = useState(false);
   const [solarPositive, setSolarPositive] = useState(true);
-  const [carPositive, setCarPositive] = useState(false);
+  const [carPositive, setCarPositive] = useState(true);
   const [big1Positive, setBig1Positive] = useState(false);
-  const [big2Positive, setBig2Positive] = useState(false);
+  const [big2Positive, setBig2Positive] = useState(true);
 
-  let wsConsValue = 110;
-  let wsSolarValue = 1110;
-  let wsGridValue = 110;
-  let wsBattValue = 660;
-  let wsCarValue = 8000;
-  let wsBigLoad1Value = 430;
-  let wsBigLoad2Value = 500;
+  const { wsConsValue } = sensorsValues;
 
   const colors = {
     gridAnimPos: "",
@@ -57,7 +51,7 @@ function HomeSensor({ name, sensorId, value, status, icon }: HomeSensorProps) {
           : " h-[188px] w-[293px] flex flex-col items-center justify-center"
       } relative cursor-pointer`}
     >
-      {/* animation */}
+      {/* animation arrows*/}
 
       {!flowMiniVersion && (
         <div className="z-0">
@@ -230,7 +224,12 @@ function HomeSensor({ name, sensorId, value, status, icon }: HomeSensorProps) {
                     flowMiniVersion ? "text-xs" : "text-lg font-semibold"
                   }`}
                 >
-                  {wsConsValue} kW
+                  {wsConsValue > 0
+                    ? wsConsValue > 800
+                      ? (wsConsValue / 1000).toFixed(1)
+                      : wsConsValue.toFixed(0)
+                    : 0}{" "}
+                  {wsConsValue > 800 ? "kW" : "watt"}
                 </p>
               ) : (
                 <LostSignalIcon />
