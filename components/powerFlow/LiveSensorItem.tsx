@@ -82,7 +82,7 @@ function LiveSensorItem({
         }
       
       ${flowMiniVersion ? `h-[64px]` : `h-[140px]`}
-      z-0 flex w-[85px] sm:w-[114.67px] flex-col justify-between cursor-pointer bg-tertiary p-1 shadow-md`}
+       flex w-[85px] sm:w-[114.67px] flex-col justify-between cursor-pointer bg-tertiary p-1 shadow-md`}
       >
         {!flowMiniVersion && (
           <div className="flex items-start justify-end pt-1 pr-1 space-x-3 text-textPrimary">
@@ -124,7 +124,12 @@ function LiveSensorItem({
                   flowMiniVersion ? "text-xs" : "2xl:text-lg font-semibold"
                 } whitespace-nowrap`}
               >
-                {value > 0 ? value : value * -1} kW
+                {value > 0
+                  ? value > 800
+                    ? (value / 1000).toFixed(1)
+                    : value.toFixed(0)
+                  : 0}{" "}
+                {value > 800 ? "kW" : "watt"}
               </p>
             ) : (
               <LostSignalIcon />
