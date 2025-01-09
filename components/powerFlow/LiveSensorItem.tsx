@@ -121,11 +121,11 @@ function LiveSensorItem({
             {!late ? (
               <p
                 className={`${
-                  flowMiniVersion ? "text-xs" : "2xl:text-lg font-semibold"
+                  flowMiniVersion ? "text-xs" : "2xl:text-base font-semibold"
                 } whitespace-nowrap`}
               >
-                {value > 0
-                  ? value > 800
+                {value !== 0
+                  ? value > 800 || value < -800
                     ? (value / 1000).toFixed(1)
                     : value.toFixed(0)
                   : 0}{" "}
