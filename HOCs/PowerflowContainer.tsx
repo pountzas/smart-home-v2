@@ -13,10 +13,9 @@ function PowerflowContainer({ children }: ChildrenProps) {
     useRecoilState(flowMiniVersionState);
   return (
     <motion.div
-      initial={{ width: flowMiniVersion ? "100%" : "100%" }}
-      animate={{ width: flowMiniVersion ? "100%" : "100%" }}
-      transition={{ duration: 0.4 }}
-      className={`${flowMiniVersion && "col-span-2 sm:col-span-1"} `}
+      className={`${
+        flowMiniVersion ? "flex flex-col items-center justify-start" : ""
+      } object-contain rounded-lg bg-secondary pt-2`}
     >
       {children}
     </motion.div>
