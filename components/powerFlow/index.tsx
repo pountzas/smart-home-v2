@@ -30,10 +30,11 @@ function Powerflow() {
       wsConsValue: 2110,
       wsSolarValue: 4110,
       wsGridValue: 110,
-      wsBattValue: 660,
+      wsBattValue: -660,
       wsBattPercentValue: 65,
 
       wsCarValue: 8000,
+      wsCarPercentValue: 80,
       wsBigLoad1Value: 0,
       wsBigLoad2Value: 500
     });
@@ -96,6 +97,8 @@ function Powerflow() {
       name: "EVcharger",
       // sensorId: SENSORS.EV,
       value: wsCarValue,
+      startValue: wsCarValue,
+      endValue: wsCarPercentValue,
       status: ["Charging", "Inactive"],
       icon: <EvCharger />
     },
@@ -114,30 +117,30 @@ function Powerflow() {
       status: ["Active", "Inactive"],
 
       icon: <LoadItemIcon />
+    },
+    {
+      name: "Big03",
+      // sensorId: SENSORS.BigLoad_03,
+      value: wsBigLoad3Value,
+      status: ["Active", "Inactive"],
+
+      icon: <LoadItemIcon />
+    },
+    {
+      name: "Big04",
+      // sensorId: SENSORS.BigLoad_04,
+      value: wsBigLoad4Value,
+      status: ["Active", "Inactive"],
+
+      icon: <LoadItemIcon />
+    },
+    {
+      name: "Big05",
+      // sensorId: SENSORS.BigLoad_05,
+      value: wsBigLoad5Value,
+      status: ["Active", "Inactive"],
+      icon: <LoadItemIcon />
     }
-    // {
-    //   name: "Big03",
-    //   // sensorId: SENSORS.BigLoad_03,
-    //   value: wsBigLoad3Value,
-    //   status: ["Active", "Inactive"],
-
-    //   icon: <LoadItemIcon />
-    // }
-    // {
-    //   name: "Big04",
-    //   // sensorId: SENSORS.BigLoad_04,
-    //   value: wsBigLoad4Value,
-    //   status: ["Active", "Inactive"],
-
-    //   icon: <LoadItemIcon />
-    // },
-    // {
-    //   name: "Big05",
-    //   // sensorId: SENSORS.BigLoad_05,
-    //   value: wsBigLoad5Value,
-    //   status: ["Active", "Inactive"],
-    //   icon: <LoadItemIcon />
-    // },
     // {
     //   name: "Big06",
     //   // sensorId: SENSORS.BigLoad_06,
