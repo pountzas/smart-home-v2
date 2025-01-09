@@ -11,7 +11,7 @@ function CarIllustrationCard({ cars }: CarDetailsTypes) {
     selectedModalCarState
   );
   return (
-    <div className="relative px-4 pt-4 pb-8 text-sm w-[100%] bg-tertiary rounded-lg">
+    <div className="relative px-4 pt-4 pb-16 text-sm w-[100%] bg-tertiary rounded-lg">
       <div className="flex items-center pb-4 space-x-2">
         <div className="w-2 h-2 rounded-full bg-lightBlue_custom"></div>
         <h3>{cars[selectedModalCar].car}</h3>
