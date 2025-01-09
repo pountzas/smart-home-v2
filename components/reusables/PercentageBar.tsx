@@ -28,7 +28,6 @@ function PercentageBar({
       const calculate = (startValue / endValue) * 100;
       return calculate.toFixed(0);
     };
-    console.log(typeof EmissionsPercentage());
     setPercentage(Number(EmissionsPercentage()));
   }, [startValue, endValue]);
 
