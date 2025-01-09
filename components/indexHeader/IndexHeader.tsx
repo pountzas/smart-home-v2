@@ -7,6 +7,7 @@ import Tickets from "@/public/icons/Tickets";
 import CheckCircle from "@/public/icons/CheckCircle";
 import DataSettings from "@/public/icons/DataSettings";
 import Location from "@/public/icons/Location";
+import Summary from "../summary/Summary";
 
 function IndexHeader() {
   const [showAccountDropdown, setShowAccountDropdown] = useState(false);
@@ -100,7 +101,9 @@ function IndexHeader() {
           </div>
         </div>
       </div>
-      <div className="md:col-span-3 xl:col-span-2">{/* <Summary /> */}</div>
+      <div className="md:col-span-3 xl:col-span-2">
+        <Summary />
+      </div>
     </div>
   );
 }
