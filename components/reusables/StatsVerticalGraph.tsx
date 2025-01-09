@@ -10,7 +10,7 @@ function StatsVerticalGraph({ cars }: CarDetailsTypes) {
   );
   return (
     <div className="px-4 pb-4">
-      <div className="p-4 space-y-2 rounded-lg bg-tertiary">
+      <div className="p-4 space-y-2 rounded-xl bg-tertiary">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             {/* title */}
