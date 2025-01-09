@@ -14,7 +14,7 @@ import Optimiser from "@/components/οptimiser/Optimiser";
 export default function Home() {
   const miniVersion = false;
   return (
-    <main className=" w-full">
+    <main className=" w-full relative">
       <div className="flex flex-col items-center justify-between w-full bg-primary">
         <div className="grid gap-4 grid-rows-7 w-full">
           <div className="row-span-1 w-full">
