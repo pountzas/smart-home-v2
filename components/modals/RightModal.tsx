@@ -103,7 +103,7 @@ function RightModal() {
   return (
     <RightModalContainer>
       <div
-        className={`absolute top-0 right-0 rounded-l-xl overscroll-contain min-h-screen max-h-screen min-w-[40vw] max-w-[40vw] z-[200] bg-secondary flex flex-col`}
+        className={`absolute top-0 right-0 rounded-l-xl overscroll-contain min-h-screen max-h-screen min-w-[40vw] max-w-[40vw] z-[200] bg-secondary flex flex-col text-white`}
       >
         {/* topbar */}
         <section className="flex items-center justify-between p-2 rounded-tl-xl bg-tertiary text-white">
