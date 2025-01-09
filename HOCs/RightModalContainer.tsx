@@ -29,6 +29,14 @@ function RightModalContainer({ children }: ChildrenProps) {
   return (
     <>
       <motion.div
+        initial={{ opacity: rightmodalOpen ? 0 : 0 }}
+        animate={{ opacity: rightmodalOpen ? 0.7 : 0 }}
+        onClick={() => setRightModalOpen(false)}
+        className={`${
+          !rightmodalOpen && "hidden"
+        } top-0 right-0 z-50 absolute w-full h-screen bg-secondary blur-3xl`}
+      ></motion.div>
+      <motion.div
         initial={{ x: rightmodalOpen ? 0 : "100%" }}
         animate={{ x: rightmodalOpen ? 0 : "100%" }}
         transition={{ duration: 0.4 }}
@@ -36,12 +44,6 @@ function RightModalContainer({ children }: ChildrenProps) {
       >
         {children}
       </motion.div>
-      <div
-        onClick={() => setRightModalOpen(false)}
-        className={`${
-          !rightmodalOpen && "hidden"
-        } top-0 left-0 absolute min-h-screen max-h-screen min-w-[100%] bg-primary opacity-70 blur-lg`}
-      ></div>
     </>
   );
 }
