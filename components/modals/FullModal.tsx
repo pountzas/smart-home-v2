@@ -79,12 +79,14 @@ function FullModal() {
               </FullModalPerformanceSummaryContainer>
 
               <FullModalEvChargerContainer>
-                {/* Car info */}
-                <CarDetails cars={CarsModalCardData} />
-                {/* car charger */}
-                <CarChargerCard cars={CarsModalCardData} />
-                {/* car illustration */}
-                <CarIllustrationCard cars={CarsModalCardData} />
+                <div className="space-y-4">
+                  {/* Car info */}
+                  <CarDetails cars={CarsModalCardData} />
+                  {/* car charger */}
+                  <CarChargerCard cars={CarsModalCardData} />
+                  {/* car illustration */}
+                  <CarIllustrationCard cars={CarsModalCardData} />
+                </div>
               </FullModalEvChargerContainer>
             </div>
           </div>
@@ -103,7 +105,7 @@ function FullModal() {
             </FullModalPerformanceSummaryContainer>
 
             <FullModalEvChargerContainer>
-              <div className="p-4">
+              <div className="-m-3">
                 <div className="flex items-center mb-3 h-7">
                   {/* <SummaryPeriod onDateTypeSwitch={onDateTypeSwitch} dateType={dateType} />
                     {dateType != "LT" &&
