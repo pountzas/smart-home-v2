@@ -11,7 +11,7 @@ import DetailsIcon from "@/public/icons/DetailsIcon";
 import DeviceInfo from "@/public/icons/DeviceInfoIcon";
 import LostSignalIcon from "@/public/icons/LostSignalIcon";
 import { sensorsUUIDsState, sensorsValuesState } from "@/atoms/assetsAtom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type LiveSensorItemProps = {
   active: string;
@@ -54,6 +54,19 @@ function LiveSensorItem({
   const [negative, setNegative] = useState(false);
   const [type, setType] = useState("");
 
+  useEffect(() => {
+    if (value === 0) {
+      setLate(true);
+    } else {
+      setLate(false);
+    }
+    if (value < 0) {
+      setNegative(true);
+    } else {
+      setNegative(false);
+    }
+  }, [value]);
+
   const openModal = () => {
     setModal(true);
     setModalType(name);
@@ -78,7 +91,7 @@ function LiveSensorItem({
               : negative
               ? `anim-direction-left border-[1px]`
               : ``
-            : "border-grid border-[1px] animate-pulse"
+            : "border-grid border-[1px] animate-pulse mb-8"
         }
       
       ${flowMiniVersion ? `h-[64px]` : `h-[140px]`}
@@ -100,9 +113,9 @@ function LiveSensorItem({
         >
           <div className="flex items-start space-x-1 ">
             <div className={`${late && "animate-pulse"}`}>{icon}</div>
-            {!flowMiniVersion && secondarySensorId != null && (
-              <p>{endValue}%</p>
-            )}
+            {(name == "Battery" || name == "EVcharger" || name == "car") &&
+              endValue &&
+              !flowMiniVersion && <p>{endValue}%</p>}
           </div>
           <div className={`${flowMiniVersion && "flex flex-col-reverse"}`}>
             <div
