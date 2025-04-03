@@ -63,7 +63,7 @@ function StatsVerticalGraph({ cars }: CarDetailsTypes) {
               </div>
             </div>
 
-            <div className="absolute z-20 h-[400px] w-full flex items-end justify-between pl-12 pr-2 pt-80">
+            <div className="absolute z-10 h-[400px] w-full flex items-end justify-between pl-12 pr-2 pt-80">
               {cars[selectedModalCar].balanced.map((value, i) => {
                 return (
                   <VerticalBar
@@ -76,7 +76,7 @@ function StatsVerticalGraph({ cars }: CarDetailsTypes) {
               })}
             </div>
 
-            <div className=" h-[400px] z-10 w-full flex items-end justify-between pl-12 pr-2 pt-80">
+            <div className=" h-[400px] z-0 w-full flex items-end justify-between pl-12 pr-2 pt-80">
               {cars[selectedModalCar].boosted.map((value, i) => {
                 return (
                   <VerticalBar

@@ -1,15 +1,20 @@
+"use client";
+
+import { CarsModalCardData } from "@/utils/evChargerUtils";
 import ComponentsHeader from "../reusables/ComponentsHeader";
+import StatsVerticalGraph from "../reusables/StatsVerticalGraph";
+import { modalOpenState } from "@/atoms/uiAtom";
+import { useRecoilState } from "recoil";
 
 function Graphs() {
+  const [modalOpen, setModalOpen] = useRecoilState(modalOpenState);
   return (
-    <div className="h-[500px] flex flex-col rounded-lg bg-secondary mb-4 py-3">
+    <div className="flex flex-col rounded-lg bg-secondary mb-4 py-3">
       <ComponentsHeader title="Power Curves" note="Spot Values" />
-      {/* <GraphsScreenContainer
-        date={null}
-        dataFetching={dataFetching}
-        goToPrevDate={() => decrdate()}
-        goToNextDate={() => incrdate()}
-      /> */}
+
+      <div className="p-2">
+        {!modalOpen && <StatsVerticalGraph cars={CarsModalCardData} />}
+      </div>
     </div>
   );
 }
