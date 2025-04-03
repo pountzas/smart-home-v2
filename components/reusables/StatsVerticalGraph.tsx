@@ -8,6 +8,9 @@ function StatsVerticalGraph({ cars }: CarDetailsTypes) {
   const [selectedModalCar, setSelectedModalCar] = useRecoilState(
     selectedModalCarState
   );
+
+  const lineValues = [100, 75, 50, 25, 0];
+  const dateValues = ["1/11", "6/11", "11/11", "16/11", "21/11", "26/11"];
   return (
     <div className="px-4 pb-4">
       <div className="p-4 space-y-2 rounded-xl bg-tertiary">
@@ -39,28 +42,19 @@ function StatsVerticalGraph({ cars }: CarDetailsTypes) {
               Consumption kWh
             </div>
 
-            {/* measurment lines */}
+            {/* measurment lines values */}
             <div className="absolute z-0 flex flex-col justify-between w-full h-full pl-6 text-right ">
-              <div className="flex items-center justify-between w-full space-x-1 text-xs text-textSecondary">
-                <p>100</p>
-                <div className="w-[100%] h-[2px] bg-textSecondary"></div>
-              </div>
-              <div className="flex items-center justify-between w-full space-x-1 text-xs text-textSecondary">
-                <p>75</p>
-                <div className="w-[100%] h-[2px] bg-textSecondary"></div>
-              </div>
-              <div className="flex items-center justify-between w-full space-x-1 text-xs text-textSecondary">
-                <p>50</p>
-                <div className="w-[100%] h-[2px] bg-textSecondary"></div>
-              </div>
-              <div className="flex items-center justify-between w-full space-x-1 text-xs text-textSecondary">
-                <p>25</p>
-                <div className="w-[100%] h-[2px] bg-textSecondary"></div>
-              </div>
-              <div className="flex items-center justify-between w-full space-x-1 text-xs text-textSecondary">
-                <p>0</p>
-                <div className="w-[100%] h-[2px] bg-textSecondary"></div>
-              </div>
+              {lineValues.map((value, i) => {
+                return (
+                  <div
+                    className="flex items-center justify-between w-full space-x-1 text-xs text-textSecondary"
+                    key={value + i}
+                  >
+                    <p>{value}</p>
+                    <div className="w-[100%] h-[2px] bg-textSecondary"></div>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="absolute z-10 h-[400px] w-full flex items-end justify-between pl-12 pr-2 pt-80">
@@ -92,21 +86,16 @@ function StatsVerticalGraph({ cars }: CarDetailsTypes) {
 
           {/* dates */}
           <div className="flex items-center justify-between pt-2 pb-3 text-sm pl-9">
-            <div>
-              <p className="text-textTertiary">1/11</p>
-            </div>
-            <div>
-              <p className="text-textTertiary">6/11</p>
-            </div>
-            <div>
-              <p className="text-textTertiary">11/11</p>
-            </div>
-            <div>
-              <p className="text-textTertiary">16/11</p>
-            </div>
-            <div>
-              <p className="text-textTertiary">21/11</p>
-            </div>
+            {dateValues.map((date, i) => {
+              return (
+                <div
+                  className="flex items-center justify-center w-full h-full"
+                  key={date + i}
+                >
+                  <p className="text-textTertiary">{date}</p>
+                </div>
+              );
+            })}
             <div>
               <p className="text-textTertiary">26/11</p>
             </div>
