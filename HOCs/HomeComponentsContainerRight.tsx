@@ -1,6 +1,5 @@
 "use client";
-import { flowMiniVersionState } from "@/atoms/uiAtom";
-import { useRecoilState } from "recoil";
+import { useUIStore } from "@/atoms/uiAtom";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -9,8 +8,7 @@ type ChildrenProps = {
 };
 function HomeComponentsContainerRight({ children }: ChildrenProps) {
   const [miniVersion, setMiniVersion] = useState(false);
-  const [flowMiniVersion, setFlowMiniVersion] =
-    useRecoilState(flowMiniVersionState);
+  const flowMiniVersion = useUIStore((state) => state.flowMiniVersionState);
 
   useEffect(() => {
     setMiniVersion(flowMiniVersion);

@@ -1,9 +1,9 @@
-import { sensorsValuesState } from "@/atoms/assetsAtom";
-import { flowMiniVersionState } from "@/atoms/uiAtom";
+import { useSensorsStore } from "@/atoms/assetsAtom";
+import { useUIStore } from "@/atoms/uiAtom";
 import AnimationArrowsIcon from "@/public/icons/AnimationArrowsIcon";
 import LostSignalIcon from "@/public/icons/LostSignalIcon";
 import { useState } from "react";
-import { useRecoilState } from "recoil";
+
 type HomeSensorProps = {
   name: string;
   sensorId?: string;
@@ -12,9 +12,8 @@ type HomeSensorProps = {
   icon: React.ReactNode;
 };
 function HomeSensor({ name, sensorId, value, status, icon }: HomeSensorProps) {
-  const [flowMiniVersion, setFlowMiniVersion] =
-    useRecoilState(flowMiniVersionState);
-  const [sensorsValues, setSensorsValues] = useRecoilState(sensorsValuesState);
+  const flowMiniVersion = useUIStore((state) => state.flowMiniVersionState);
+  const sensorsValues = useSensorsStore((state) => state.sensorsValuesState);
 
   const [late, setLate] = useState(false);
   const [stop, setStop] = useState(true);

@@ -1,7 +1,6 @@
 "use client";
 
-import { selectedModalCarState } from "@/atoms/uiAtom";
-import { useRecoilState } from "recoil";
+import { useUIStore } from "@/atoms/uiAtom";
 
 type SelectedModalCarButtonProps = {
   car: {
@@ -10,9 +9,9 @@ type SelectedModalCarButtonProps = {
   index: number;
 };
 function SelectedModalCarButton({ car, index }: SelectedModalCarButtonProps) {
-  const [selectedModalCar, setSelectedModalCar] = useRecoilState(
-    selectedModalCarState
-  );
+  const selectedModalCar = useUIStore((state) => state.selectedModalCarState);
+  const setSelectedModalCar = useUIStore((state) => state.setSelectedModalCarState);
+
   return (
     <button
       key={index}

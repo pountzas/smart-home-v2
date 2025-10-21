@@ -1,18 +1,12 @@
 "use client";
 
-import { useRecoilState } from "recoil";
-import {
-  modalOpenState,
-  rightmodalOpenState,
-  modalTypeState
-} from "@/atoms/uiAtom";
+import { useUIStore } from "@/atoms/uiAtom";
 import ExpandComponentIcon from "@/public/icons/ExpandComponentIcon";
 
 function ModalButton({ title }: { title: string }) {
-  const [fullModalOpen, setFullModalOpen] = useRecoilState(modalOpenState);
-  const [rightModalOpen, setRightModalOpen] =
-    useRecoilState(rightmodalOpenState);
-  const [modalType, setModalType] = useRecoilState(modalTypeState);
+  const setFullModalOpen = useUIStore((state) => state.setModalOpenState);
+  const setRightModalOpen = useUIStore((state) => state.setRightmodalOpenState);
+  const setModalType = useUIStore((state) => state.setModalTypeState);
 
   const whatModalToOpen = () => {
     switch (title) {
@@ -50,7 +44,7 @@ function ModalButton({ title }: { title: string }) {
       default:
         break;
     }
-    console.log("modalType", modalType);
+    console.log("modalType", title);
   };
 
   return (

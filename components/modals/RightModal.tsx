@@ -1,7 +1,6 @@
 "use client";
 
-import { useRecoilState } from "recoil";
-import { rightmodalOpenState, modalTypeState } from "../../atoms/uiAtom";
+import { useUIStore } from "../../atoms/uiAtom";
 import RightModalContainer from "@/HOCs/RightModalContainer";
 import ModalCloseButton from "../reusables/buttons/ModalCloseButton";
 import ModalAddButton from "../reusables/buttons/ModalAddButton";
@@ -11,9 +10,7 @@ import DeviceDetails from "../reusables/DeviceDetails";
 import ToggleComponent from "../reusables/ToggleComponent";
 
 function RightModal() {
-  const [rightmodalOpen, setRightmodalOpen] =
-    useRecoilState(rightmodalOpenState);
-  const [modalType, setModalType] = useRecoilState(modalTypeState);
+  const modalType = useUIStore((state) => state.modalTypeState);
 
   const setDeviceDetails = () => {
     switch (modalType) {

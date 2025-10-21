@@ -1,9 +1,8 @@
 "use client";
-import { useRecoilState } from "recoil";
-import { modalTypeState } from "@/atoms/uiAtom";
+import { useUIStore } from "@/atoms/uiAtom";
 
 function ModalTitle() {
-  const [modalType] = useRecoilState(modalTypeState);
+  const modalType = useUIStore((state) => state.modalTypeState);
   return <h2>{modalType}</h2>;
 }
 

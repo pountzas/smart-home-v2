@@ -1,9 +1,9 @@
+"use client";
 import Bin from "@/public/icons/Bin";
-import { modalTypeState } from "@/atoms/uiAtom";
-import { useRecoilState } from "recoil";
+import { useUIStore } from "@/atoms/uiAtom";
 
 function ModalDeleteButton() {
-  const [modalType, setModalType] = useRecoilState(modalTypeState);
+  const modalType = useUIStore((state) => state.modalTypeState);
   return (
     <>
       {modalType === "Power" && (

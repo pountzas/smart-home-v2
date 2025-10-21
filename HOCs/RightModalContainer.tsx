@@ -2,16 +2,15 @@
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { rightmodalOpenState } from "@/atoms/uiAtom";
-import { useRecoilState } from "recoil";
+import { useUIStore } from "@/atoms/uiAtom";
 
 type ChildrenProps = {
   children: React.ReactNode;
 };
 
 function RightModalContainer({ children }: ChildrenProps) {
-  const [rightmodalOpen, setRightModalOpen] =
-    useRecoilState(rightmodalOpenState);
+  const rightmodalOpen = useUIStore((state) => state.rightmodalOpenState);
+  const setRightModalOpen = useUIStore((state) => state.setRightmodalOpenState);
 
   const escKeyDown = (e: KeyboardEvent) => {
     if (e.key === "27" || e.key === "Escape") {

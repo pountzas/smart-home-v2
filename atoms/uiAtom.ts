@@ -1,26 +1,35 @@
-import { atom } from "recoil";
+import { create } from "zustand";
 
-export const flowMiniVersionState = atom({
-  key: "flowMiniVersionState",
-  default: false
-});
+interface UIStore {
+  flowMiniVersionState: boolean;
+  setFlowMiniVersionState: (value: boolean) => void;
+  
+  selectedModalCarState: number;
+  setSelectedModalCarState: (value: number) => void;
+  
+  modalOpenState: boolean;
+  setModalOpenState: (value: boolean) => void;
+  
+  rightmodalOpenState: boolean;
+  setRightmodalOpenState: (value: boolean) => void;
+  
+  modalTypeState: string;
+  setModalTypeState: (value: string) => void;
+}
 
-export const selectedModalCarState = atom({
-  key: "selectedModalCarState",
-  default: 1
-});
-
-export const modalOpenState = atom({
-  key: "modalOpenState",
-  default: false
-});
-
-export const rightmodalOpenState = atom({
-  key: "rightmodalOpenState",
-  default: false
-});
-
-export const modalTypeState = atom({
-  key: "modalTypeState",
-  default: "none"
-});
+export const useUIStore = create<UIStore>((set) => ({
+  flowMiniVersionState: false,
+  setFlowMiniVersionState: (value: boolean) => set({ flowMiniVersionState: value }),
+  
+  selectedModalCarState: 1,
+  setSelectedModalCarState: (value: number) => set({ selectedModalCarState: value }),
+  
+  modalOpenState: false,
+  setModalOpenState: (value: boolean) => set({ modalOpenState: value }),
+  
+  rightmodalOpenState: false,
+  setRightmodalOpenState: (value: boolean) => set({ rightmodalOpenState: value }),
+  
+  modalTypeState: "none",
+  setModalTypeState: (value: string) => set({ modalTypeState: value }),
+}));

@@ -8,13 +8,11 @@ import CircleLoadLines from "@/public/icons/CircleLoadLines";
 import Stop from "@/public/icons/Stop";
 import Booster from "@/public/icons/Booster";
 import AddButton from "./buttons/AddButton";
-import { selectedModalCarState } from "@/atoms/uiAtom";
-import { useRecoilState } from "recoil";
+import { useUIStore } from "@/atoms/uiAtom";
 
 function CarChargerCard({ cars }: CarDetailsTypes) {
-  const [selectedModalCar, setSelectedModalCar] = useRecoilState(
-    selectedModalCarState
-  );
+  const selectedModalCar = useUIStore((state) => state.selectedModalCarState);
+
   const { schedules } = cars[selectedModalCar];
 
   const calculatePercentage = (value: number, max: number) => {

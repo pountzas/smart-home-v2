@@ -1,7 +1,6 @@
 "use client";
 
-import { flowMiniVersionState } from "@/atoms/uiAtom";
-import { useRecoilState } from "recoil";
+import { useUIStore } from "@/atoms/uiAtom";
 import { motion } from "framer-motion";
 
 type ChildrenProps = {
@@ -9,8 +8,7 @@ type ChildrenProps = {
 };
 
 function PowerflowContainer({ children }: ChildrenProps) {
-  const [flowMiniVersion, setFlowMiniVersion] =
-    useRecoilState(flowMiniVersionState);
+  const flowMiniVersion = useUIStore((state) => state.flowMiniVersionState);
   return (
     <motion.div
       className={`${

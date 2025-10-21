@@ -3,14 +3,14 @@
 import { useEffect } from "react";
 
 import { motion } from "framer-motion";
-import { modalOpenState } from "@/atoms/uiAtom";
-import { useRecoilState } from "recoil";
+import { useUIStore } from "@/atoms/uiAtom";
 
 type ChildrenProps = {
   children: React.ReactNode;
 };
 export default function FullModalContainer({ children }: ChildrenProps) {
-  const [modalOpen, setModalOpen] = useRecoilState(modalOpenState);
+  const modalOpen = useUIStore((state) => state.modalOpenState);
+  const setModalOpen = useUIStore((state) => state.setModalOpenState);
 
   const escKeyDown = (e: KeyboardEvent) => {
     if (e.key === "27" || e.key === "Escape") {

@@ -15,6 +15,9 @@
 
 # production
 /build
+.cursor*
+.memory
+memory-bank
 
 # misc
 .DS_Store

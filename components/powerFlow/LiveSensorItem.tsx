@@ -1,16 +1,13 @@
 "use client";
 
 import {
-  flowMiniVersionState,
-  rightmodalOpenState,
-  modalTypeState
+  useUIStore
 } from "@/atoms/uiAtom";
-import { useRecoilState } from "recoil";
 import { motion } from "framer-motion";
 import DetailsIcon from "@/public/icons/DetailsIcon";
 import DeviceInfo from "@/public/icons/DeviceInfoIcon";
 import LostSignalIcon from "@/public/icons/LostSignalIcon";
-import { sensorsUUIDsState, sensorsValuesState } from "@/atoms/assetsAtom";
+import { useSensorsStore } from "@/atoms/assetsAtom";
 import { useEffect, useState } from "react";
 
 type LiveSensorItemProps = {
@@ -43,16 +40,32 @@ function LiveSensorItem({
   status,
   value
 }: LiveSensorItemProps) {
-  const [flowMiniVersion, setFlowMiniVersion] =
-    useRecoilState(flowMiniVersionState);
-  const [modal, setModal] = useRecoilState(rightmodalOpenState);
-  const [modalType, setModalType] = useRecoilState(modalTypeState);
-  const [sensorsValues, setSensorsValues] = useRecoilState(sensorsValuesState);
-  const [sensorsUUIDs, setSensorsUUIDs] = useRecoilState(sensorsUUIDsState);
-
+  const flowMiniVersion = useUIStore((state) => state.flowMiniVersionState);
+  const modal = useUIStore((state) => state.rightmodalOpenState);
+  const setModal = useUIStore((state) => state.setRightmodalOpenState);
+  const setModalType = useUIStore((state) => state.setModalTypeState);
+  const sensorsValues = useSensorsStore((state) => state.sensorsValuesState);
   const [late, setLate] = useState(false);
   const [negative, setNegative] = useState(false);
   const [type, setType] = useState("");
+
+  console.log("devices", name);
+  const isLowerDevice = () => {
+    switch (name) {
+      case "Battery":
+      case "EVcharger":
+      case "Grid":
+      case "Home":
+      case "Load":
+      case "Solar":
+      case "Car":
+      case "A/C":
+      case "Oven":
+        return false;
+      default:
+        return true;
+    }
+  };
 
   useEffect(() => {
     if (value === 0) {

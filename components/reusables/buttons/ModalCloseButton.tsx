@@ -1,11 +1,9 @@
 "use client";
 import Close from "@/public/icons/Close";
-import { rightmodalOpenState } from "@/atoms/uiAtom";
-import { useRecoilState } from "recoil";
+import { useUIStore } from "@/atoms/uiAtom";
 
 function ModalCloseButton() {
-  const [rightmodalOpen, setRightmodalOpen] =
-    useRecoilState(rightmodalOpenState);
+  const setRightmodalOpen = useUIStore((state) => state.setRightmodalOpenState);
   return (
     <button className="px-2" onClick={() => setRightmodalOpen(false)}>
       <Close />

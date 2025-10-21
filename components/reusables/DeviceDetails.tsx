@@ -1,5 +1,4 @@
-import { useRecoilState } from "recoil";
-import { modalTypeState } from "@/atoms/uiAtom";
+import { useUIStore } from "@/atoms/uiAtom";
 import PercentageBar from "./PercentageBar";
 import CarExpandCard from "./CarExpandCard";
 import { CarsModalCardData } from "@/utils/evChargerUtils";
@@ -26,7 +25,7 @@ const EvInfoCards = [
 ];
 
 function DeviceDetails() {
-  const [modalType, setModalType] = useRecoilState(modalTypeState);
+  const modalType = useUIStore((state) => state.modalTypeState);
 
   const getDeviceType = () => {
     switch (modalType) {

@@ -1,8 +1,7 @@
 "use client";
 
-import { useRecoilState } from "recoil";
-import { flowMiniVersionState } from "@/atoms/uiAtom";
-import { sensorsValuesState } from "@/atoms/assetsAtom";
+import { useUIStore } from "@/atoms/uiAtom";
+import { useSensorsStore } from "@/atoms/assetsAtom";
 
 import { motion } from "framer-motion";
 import ToggleButton from "../reusables/buttons/ToggleButton";
@@ -21,9 +20,10 @@ import SolarIcon from "@/public/icons/SolarIcon";
 import { useEffect } from "react";
 
 function Powerflow() {
-  const [flowMiniVersion, setFlowMiniVersion] =
-    useRecoilState(flowMiniVersionState);
-  const [sensorsValues, setSensorsValues] = useRecoilState(sensorsValuesState);
+  const flowMiniVersion = useUIStore((state) => state.flowMiniVersionState);
+  const sensorsValues = useSensorsStore((state) => state.sensorsValuesState);
+  const setSensorsValues = useSensorsStore((state) => state.setSensorsValuesState);
+  
   useEffect(() => {
     setSensorsValues({
       ...sensorsValues,

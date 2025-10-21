@@ -1,12 +1,11 @@
 "use client";
-import { modalTypeState } from "@/atoms/uiAtom";
-import { useRecoilState } from "recoil";
+import { useUIStore } from "@/atoms/uiAtom";
 
 type ChildrenProps = {
   children: React.ReactNode;
 };
 function FullModalPerformanceSummaryContainer({ children }: ChildrenProps) {
-  const [modalType, setModalType] = useRecoilState(modalTypeState);
+  const modalType = useUIStore((state) => state.modalTypeState);
 
   return (
     <div

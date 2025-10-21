@@ -1,13 +1,10 @@
 "use client";
 import Info from "@/public/icons/Info";
 import VerticalBar from "./VerticalBar";
-import { selectedModalCarState } from "@/atoms/uiAtom";
-import { useRecoilState } from "recoil";
+import { useUIStore } from "@/atoms/uiAtom";
 
 function StatsVerticalGraph({ cars }: CarDetailsTypes) {
-  const [selectedModalCar, setSelectedModalCar] = useRecoilState(
-    selectedModalCarState
-  );
+  const selectedModalCar = useUIStore((state) => state.selectedModalCarState);
 
   const lineValues = [100, 75, 50, 25, 0];
   const dateValues = ["1/11", "6/11", "11/11", "16/11", "21/11", "26/11"];

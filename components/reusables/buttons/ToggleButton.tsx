@@ -1,13 +1,12 @@
-import { flowMiniVersionState, modalOpenState } from "@/atoms/uiAtom";
+import { useUIStore } from "@/atoms/uiAtom";
 import FlowToggle from "@/public/icons/FlowToggle";
 import MiniToggle from "@/public/icons/MiniToggle";
-import { useRecoilState } from "recoil";
 import { motion } from "framer-motion";
 
 function ToggleButton() {
-  const [flowMiniVersion, setFlowMiniVersion] =
-    useRecoilState(flowMiniVersionState);
-  const [modal, setModal] = useRecoilState(modalOpenState);
+  const flowMiniVersion = useUIStore((state) => state.flowMiniVersionState);
+  const setFlowMiniVersion = useUIStore((state) => state.setFlowMiniVersionState);
+  const modal = useUIStore((state) => state.modalOpenState);
 
   const openMiniFlow = () => {
     !flowMiniVersion && setFlowMiniVersion(true);

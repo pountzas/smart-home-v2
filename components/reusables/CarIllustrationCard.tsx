@@ -2,14 +2,12 @@
 
 import Image from "next/image";
 import PercentageBar from "./PercentageBar";
-import { selectedModalCarState } from "@/atoms/uiAtom";
-import { useRecoilState } from "recoil";
+import { useUIStore } from "@/atoms/uiAtom";
 import StatusButton from "./buttons/StatusButton";
 
 function CarIllustrationCard({ cars }: CarDetailsTypes) {
-  const [selectedModalCar, setSelectedModalCar] = useRecoilState(
-    selectedModalCarState
-  );
+  const selectedModalCar = useUIStore((state) => state.selectedModalCarState);
+
   return (
     <div className="relative px-4 pt-4 pb-16 text-sm w-[100%] bg-tertiary rounded-lg">
       <div className="flex items-center pb-4 space-x-2">

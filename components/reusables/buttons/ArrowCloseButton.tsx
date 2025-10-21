@@ -1,15 +1,13 @@
 "use client";
 
-import { modalOpenState, rightmodalOpenState } from "@/atoms/uiAtom";
+import { useUIStore } from "@/atoms/uiAtom";
 import ArrowLeft from "@/public/icons/ArrowLeft";
-import { useRecoilState } from "recoil";
 
 import { motion } from "framer-motion";
 
 function ArrowCloseButton() {
-  const [modalOpen, setModalOpen] = useRecoilState(modalOpenState);
-  const [rightModalOpen, setRightModalOpen] =
-    useRecoilState(rightmodalOpenState);
+  const setModalOpen = useUIStore((state) => state.setModalOpenState);
+  const setRightModalOpen = useUIStore((state) => state.setRightmodalOpenState);
 
   const closeModals = () => {
     setModalOpen(false);

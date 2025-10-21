@@ -1,64 +1,60 @@
-import { atom } from "recoil";
+import { create } from "zustand";
 
-// export const powerSupplyItemsState = atom({
-//   key: 'powerSupplyItemsState',
-//   default: [
-//     {
-//       id: 1,
-//       name: 'Grid',
-//       gridUUID: 'Grid',
-//     },
-//     {
-//       id: 2,
-//       name: 'Solar',
-//       gridUUID: 'Solar',
-//     },
-//     {
-//       id: 3,
-//       name: 'Wind',
-//       gridUUID: 'Wind',
-//     },
-//     {
-//       id: 4,
-//       name: 'Battery',
-//       gridUUID: 'Battery',
-//     }
-//   ]
-// });
+interface GraphStore {
+  activeGraphConsState: boolean;
+  setActiveGraphConsState: (value: boolean) => void;
+  
+  activeGraphExpState: boolean;
+  setActiveGraphExpState: (value: boolean) => void;
+  
+  activeGraphImpState: boolean;
+  setActiveGraphImpState: (value: boolean) => void;
+  
+  activeGraphGenState: boolean;
+  setActiveGraphGenState: (value: boolean) => void;
+  
+  activeGraphGridState: boolean;
+  setActiveGraphGridState: (value: boolean) => void;
+  
+  activeGraphBattState: boolean;
+  setActiveGraphBattState: (value: boolean) => void;
+}
 
-export const activeGraphConsState = atom({
-  key: "activeGraphConsState",
-  default: false
-});
+// Graph state store
+export const useGraphStore = create<GraphStore>((set) => ({
+  activeGraphConsState: false,
+  setActiveGraphConsState: (value: boolean) => set({ activeGraphConsState: value }),
+  
+  activeGraphExpState: false,
+  setActiveGraphExpState: (value: boolean) => set({ activeGraphExpState: value }),
+  
+  activeGraphImpState: false,
+  setActiveGraphImpState: (value: boolean) => set({ activeGraphImpState: value }),
+  
+  activeGraphGenState: false,
+  setActiveGraphGenState: (value: boolean) => set({ activeGraphGenState: value }),
+  
+  activeGraphGridState: false,
+  setActiveGraphGridState: (value: boolean) => set({ activeGraphGridState: value }),
+  
+  activeGraphBattState: false,
+  setActiveGraphBattState: (value: boolean) => set({ activeGraphBattState: value }),
+}));
 
-export const activeGraphExpState = atom({
-  key: "activeGraphExpState",
-  default: false
-});
+interface SensorsStore {
+  sensorsUUIDsState: any[];
+  setSensorsUUIDsState: (value: any) => void;
 
-export const activeGraphImpState = atom({
-  key: "activeGraphImpState",
-  default: false
-});
+  sensorsValuesState: any;
+  setSensorsValuesState: (value: any) => void;
 
-export const activeGraphGenState = atom({
-  key: "activeGraphGenState",
-  default: false
-});
+  sensorsPopulationsState: any;
+  setSensorsPopulationsState: (value: any) => void;
+}
 
-export const activeGraphGridState = atom({
-  key: "activeGraphGridState",
-  default: false
-});
-
-export const activeGraphBattState = atom({
-  key: "activeGraphBattState",
-  default: false
-});
-
-export const sensorsUUIDsState = atom({
-  key: "sensorsUUIDsState",
-  default: [
+// Sensors state store
+export const useSensorsStore = create<SensorsStore>((set) => ({
+  sensorsUUIDsState: [
     { gridUUID: "Grid" },
     { solarUUID: "Solar" },
     { windUUID: "Wind" },
@@ -77,12 +73,10 @@ export const sensorsUUIDsState = atom({
     { bigLoad8UUID: "Big08" },
     { bigLoad9UUID: "Big09" },
     { bigLoad10UUID: "Big10" }
-  ]
-});
+  ],
+  setSensorsUUIDsState: (value: any) => set({ sensorsUUIDsState: value }),
 
-export const sensorsValuesState = atom({
-  key: "sensorsValuesState",
-  default: {
+  sensorsValuesState: {
     isConnectedToStream: false,
     wsGridValue: 0,
     wsSolarValue: 0,
@@ -102,12 +96,10 @@ export const sensorsValuesState = atom({
     wsBigLoad8Value: 0,
     wsBigLoad9Value: 0,
     wsBigLoad10Value: 0
-  }
-});
+  },
+  setSensorsValuesState: (value: any) => set({ sensorsValuesState: value }),
 
-export const sensorsPopulationsState = atom({
-  key: "sensorsPopulationsState",
-  default: {
+  sensorsPopulationsState: {
     wsGridPopulation: 1,
     wsSolarPopulation: 24,
     wsWindPopulation: 3,
@@ -124,12 +116,18 @@ export const sensorsPopulationsState = atom({
     wsBigLoad8Population: 1,
     wsBigLoad9Population: 1,
     wsBigLoad10Population: 1
-  }
-});
+  },
+  setSensorsPopulationsState: (value: any) => set({ sensorsPopulationsState: value }),
+}));
 
-export const sensorsDetailsState = atom({
-  key: "sensorsDetailsState",
-  default: {
+interface SensorsDetailsStore {
+  sensorsDetailsState: any;
+  setSensorsDetailsState: (value: any) => void;
+}
+
+// Sensors details store
+export const useSensorsDetailsStore = create<SensorsDetailsStore>((set) => ({
+  sensorsDetailsState: {
     grid: {},
     solar: {
       output: 350
@@ -200,5 +198,6 @@ export const sensorsDetailsState = atom({
       brand: ["Miele"],
       input: [250]
     }
-  }
-});
+  },
+  setSensorsDetailsState: (value: any) => set({ sensorsDetailsState: value }),
+}));
