@@ -38,6 +38,8 @@ function Powerflow() {
       wsBigLoad1Value: 0,
       wsBigLoad2Value: 500
     });
+    // Only initialize on mount, sensors updated via store subscription
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const {
