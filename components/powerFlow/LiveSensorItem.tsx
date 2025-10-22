@@ -27,17 +27,17 @@ type LiveSensorItemProps = {
 };
 function LiveSensorItem({
   active,
-  devices,
+  // devices,
   endValue,
   icon,
   inactive,
   name,
-  power,
+  // power,
   secondary,
-  secondarySensorId,
-  sensorId,
-  startValue,
-  status,
+  // secondarySensorId,
+  // sensorId,
+  // startValue,
+  // status,
   value
 }: LiveSensorItemProps) {
   const flowMiniVersion = useUIStore((state) => state.flowMiniVersionState);
@@ -49,7 +49,7 @@ function LiveSensorItem({
   const [negative, setNegative] = useState(false);
   const [type, setType] = useState("");
 
-  console.log("devices", name);
+  // console.log("devices", name);
   const isLowerDevice = () => {
     switch (name) {
       case "Battery":
@@ -150,23 +150,23 @@ function LiveSensorItem({
                   flowMiniVersion ? "text-xs" : "2xl:text-base font-semibold"
                 } whitespace-nowrap`}
               >
-                {value !== 0
+                {value && value !== 0
                   ? value > 800 || value < -800
                     ? (value / 1000).toFixed(1)
                     : value.toFixed(0)
                   : 0}{" "}
-                {value > 800 ? "kW" : "watt"}
+                {value && value > 800 ? "kW" : "watt"}
               </p>
             ) : (
               <LostSignalIcon />
             )}
           </div>
           {!flowMiniVersion && !late ? (
-            value > 0.06 ? (
+            (value && value > 0.06) ? (
               <p className={`${name == "Grid" ? "text-grid" : "text-active"}`}>
                 {active}
               </p>
-            ) : value < 0 ? (
+            ) : (value && value < 0) ? (
               <p
                 className={`${name == "Battery" && "text-secondary"} ${
                   name == "Grid" && "text-active"

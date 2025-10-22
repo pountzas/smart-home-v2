@@ -26,21 +26,18 @@ function Powerflow() {
   
   useEffect(() => {
     setSensorsValues({
-      ...sensorsValues,
       wsConsValue: 2110,
       wsSolarValue: 4110,
       wsGridValue: 110,
       wsBattValue: -660,
       wsBattPercentValue: 65,
-
       wsCarValue: 8000,
       wsCarPercentValue: 80,
       wsBigLoad1Value: 0,
       wsBigLoad2Value: 500
     });
     // Only initialize on mount, sensors updated via store subscription
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [setSensorsValues]);
 
   const {
     isConnectedToStream,
